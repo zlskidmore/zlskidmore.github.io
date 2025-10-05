@@ -1,14 +1,15 @@
-const toggleBtn = document.getElementById('theme-toggle');
-const root = document.documentElement;
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleSwitch = document.getElementById('theme-toggle'); // the checkbox input
+  const root = document.documentElement;
 
-// Set default theme to dark unless stored otherwise
-const storedTheme = localStorage.getItem('theme') || 'dark';
-root.setAttribute('data-theme', storedTheme);
+  const storedTheme = localStorage.getItem('theme') || 'dark';
+  root.setAttribute('data-theme', storedTheme);
+  toggleSwitch.checked = storedTheme === 'light';
 
-toggleBtn.addEventListener('click', () => {
-  const currentTheme = root.getAttribute('data-theme');
-  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-  root.setAttribute('data-theme', newTheme);
-  localStorage.setItem('theme', newTheme);
+  // Toggle logic
+  toggleSwitch.addEventListener('change', () => {
+    const newTheme = toggleSwitch.checked ? 'light' : 'dark';
+    root.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  });
 });
-

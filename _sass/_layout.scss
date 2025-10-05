@@ -64,7 +64,7 @@
 
 .main-content {
   margin: 0;
-  padding: 0; // Ensure no padding around content
+  padding: 0;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -73,18 +73,22 @@
   @media (min-width: 768px) {
     margin-left: 250px; // Leave room for sidebar on desktop
   }
-
-  .page-title {
-    margin: 0;
-    font-size: 2rem;
-    color: #343a40;
-  }
-
-  .content {
-    flex-grow: 1;
-  }
 }
 
+// This needs to be outside of `.main-content` so it always applies
+.page-title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  background: $obsidian-violet;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  margin-left: 1rem;
+  display: inline-block;
+}
 /* ---------------------------------------
    Page Layout Wrapper
 ---------------------------------------- */
@@ -102,9 +106,16 @@
 ---------------------------------------- */
 
 .site-header {
-  background-color: #f8f9fa; // Light gray
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #dee2e6;
+  background: linear-gradient(to right, 
+                              $oxidized-brass 0%, 
+                              $oxidized-brass 10%, 
+                              $obsidian-violet 50%, 
+                              $obsidian-violet 100%);
+  padding: 1rem;
+  border-bottom: 2px solid $oxidized-brass;
+  
+  padding: 0;
+  border-bottom: 2px solid $oxidized-brass;
 
   img {
     max-width: 100%;

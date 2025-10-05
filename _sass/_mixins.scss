@@ -71,10 +71,24 @@
     color: $off-white;
   }
   
-  --bg-color: #ffffff;
-  --text-color: #111111;
-  --link-color: #1a0dab;
-  --card-bg: #f8f8f8;
-  --sidebar-bg: #dddddd;
+  .sidebar {
+    background-color: #ffffff;
+    color: $off-white;
+  }
+
+  a {
+    color: lighten($oxidized-brass, 10%);
+    &:hover {
+      color: $oxidized-brass;
+    }
+  }
+  
+  .site-footer {
+    background-color: $charcoal-matte;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: $antique-bronze;
+  }
 }
 

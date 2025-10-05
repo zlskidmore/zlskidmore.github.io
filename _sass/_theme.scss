@@ -1,9 +1,9 @@
-:root {
-  @include light-theme;
+[data-theme="dark"] {
+  @include dark-theme;
 }
 
-[data-theme='dark'] {
-  @include dark-theme;
+[data-theme="light"] {
+  @include light-theme;
 }
 
 html, body, .sidebar, a, h1, h2, h3, h4, h5, h6 {

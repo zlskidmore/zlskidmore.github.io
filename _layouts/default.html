@@ -17,6 +17,9 @@ layout: null
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
   <!-- Custom stylesheets -->
   <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
@@ -30,8 +33,8 @@ layout: null
       
       <!-- Contact -->
       <img src="/assets/images/headshot.png" alt="Your Photo" class="img-fluid rounded-circle mb-3">
-      <h4>Zachary L. Skidmore</h4>
-      <p>Email: zlskidmore@gmail.com</p>
+      <h4 class="text-center">Zachary L. Skidmore</h4>
+      <p class="text-center">Email: zlskidmore@gmail.com</p>
       
       <!-- Divider line -->
       <hr class="sidebar-divider my-3">
@@ -73,9 +76,21 @@ layout: null
         <a href="https://www.linkedin.com/in/zachary-skidmore-0799653a/" class="social-icon me-4">
           <i class="fa-brands fa-linkedin fa-l"></i>
         </a>
+        <a href="https://orcid.org/0000-0003-1928-7139" class="social-icon me-4">
+          <i class="fa-brands fa-orcid fa-l"></i>
+        </a>
         <a href="https://bsky.app/profile/zlskidmore.bsky.social" class="social-icon">
           <i class="fa-brands fa-bluesky fa-l"></i>
         </a>
+      </div>
+
+      <!-- theme toggle button -->
+      <div class="theme-toggle custom-switch my-3">
+        <input type="checkbox" id="theme-toggle" />
+        <label for="theme-toggle">
+          <span class="icon sun"><i class="fas fa-sun"></i></span>
+          <span class="icon moon"><i class="fas fa-moon"></i></span>
+        </label>
       </div>
       
     </aside>
@@ -83,31 +98,26 @@ layout: null
     <!-- Main Content Wrapper -->
     <main class="main-content d-flex flex-column flex-grow-1">
       
-      <div class="theme-toggle text-center my-3">
-        <button id="theme-toggle" class="btn btn-outline-light btn-sm">
-          <i class="fas fa-moon"></i> Toggle Theme
-        </button>
-      </div>
-      
       <!-- Header -->
-      <header class="site-header py-3 px-4 border-bottom">
-        <h1 class="page-title">Welcome to My Site</h1>
-        <img src="/assets/images/banner.png" alt="Banner" class="img-fluid my-3 w-100 rounded">
+      <header class="site-header px-0 py-0">
+        <h1 class="page-title">{{ page.title }}</h1>
+        <img src="/assets/images/banner.png" alt="Banner" class="img-fluid w-100">
       </header>
 
       <!-- Main Body Content -->
       <section class="content flex-grow-1 px-4 py-4">
-        <p>This is the main body content of the site. It could be a homepage message, recent posts, or other features you want users to see first.</p>
+        <p>{{ content }}</p>
       </section>
 
       <!-- Footer -->
       <footer class="site-footer text-center mt-auto">
-        <small>&copy; 2025 Zachary L. Skidmore. All rights reserved. Licensed under MIT.</small>
+        <small>&copy; 2025 Zachary L. Skidmore. Unless otherwise noted, all original content is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</small>
       </footer>
+    
     </main>
   </div>
   
-  <!-- Custom js for light mode -->
+  <!-- Custom js for light mode mutst be loaded last -->
   <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}"></script>
   
 </body>
