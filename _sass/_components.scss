@@ -1,0 +1,20 @@
+.card {
+  background-color: $dim-gray;
+  border: 1px solid lighten($dim-gray, 10%);
+  border-radius: 8px;
+  padding: $space-md;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.button {
+  display: inline-block;
+  padding: $space-sm $space-md;
+  background-color: $oxidized-brass;
+  color: $charcoal-matte;
+  border-radius: 4px;
+  font-weight: 600;
+
+  &:hover {
+    background-color: lighten($oxidized-brass, 10%);
+  }
+}

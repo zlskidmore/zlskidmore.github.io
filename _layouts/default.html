@@ -1,0 +1,115 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }}</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="{{ "/assets/favicon.ico" | relative_url }}" type="image/x-icon">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- Custom stylesheets -->
+  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+</head>
+
+<body>
+  <div class="page-wrapper flex-column min-vh-100">
+  
+    <!-- Sidebar -->
+    <aside class="sidebar d-flex flex-column p-3">
+      
+      <!-- Contact -->
+      <img src="/assets/images/headshot.png" alt="Your Photo" class="img-fluid rounded-circle mb-3">
+      <h4>Zachary L. Skidmore</h4>
+      <p>Email: zlskidmore@gmail.com</p>
+      
+      <!-- Divider line -->
+      <hr class="sidebar-divider my-3">
+
+      <!-- Navigation -->
+      <ul class="nav flex-column mb-auto text-center">
+        <li class="nav-item"><a href="/" class="nav-link text-white">Home</a></li>
+        <li class="nav-item">
+          <a href="/about/" class="nav-link text-white {% if page.url == '/about/' %}active fw-bold{% endif %}">
+            <i class="fa-solid fa-address-card"></i>
+            About
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/resume/" class="nav-link text-white {% if page.url == '/resume/' %}active fw-bold{% endif %}">
+            <i class="fas fa-file-alt me-2"></i>
+            Resume
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/published_works/" class="nav-link text-white {% if page.url == '/published_works/' %}active fw-bold{% endif %}">
+            <i class="fa-solid fa-microscope"></i>
+            Published Works
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/blog/" class="nav-link text-white {% if page.url == '/blog/' %}active fw-bold{% endif %}">
+            <i class="fa-solid fa-blog"></i>
+            Blog
+          </a>
+        </li>
+      </ul>
+
+      <!-- Social -->
+      <div class="social-icons text-center mt-auto">
+        <a href="https://github.com/zlskidmore" class="social-icon me-4">
+          <i class="fa-brands fa-github fa-l"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/zachary-skidmore-0799653a/" class="social-icon me-4">
+          <i class="fa-brands fa-linkedin fa-l"></i>
+        </a>
+        <a href="https://bsky.app/profile/zlskidmore.bsky.social" class="social-icon">
+          <i class="fa-brands fa-bluesky fa-l"></i>
+        </a>
+      </div>
+      
+    </aside>
+    
+    <!-- Main Content Wrapper -->
+    <main class="main-content d-flex flex-column flex-grow-1">
+      
+      <div class="theme-toggle text-center my-3">
+        <button id="theme-toggle" class="btn btn-outline-light btn-sm">
+          <i class="fas fa-moon"></i> Toggle Theme
+        </button>
+      </div>
+      
+      <!-- Header -->
+      <header class="site-header py-3 px-4 border-bottom">
+        <h1 class="page-title">Welcome to My Site</h1>
+        <img src="/assets/images/banner.png" alt="Banner" class="img-fluid my-3 w-100 rounded">
+      </header>
+
+      <!-- Main Body Content -->
+      <section class="content flex-grow-1 px-4 py-4">
+        <p>This is the main body content of the site. It could be a homepage message, recent posts, or other features you want users to see first.</p>
+      </section>
+
+      <!-- Footer -->
+      <footer class="site-footer text-center mt-auto">
+        <small>&copy; 2025 Zachary L. Skidmore. All rights reserved. Licensed under MIT.</small>
+      </footer>
+    </main>
+  </div>
+  
+  <!-- Custom js for light mode -->
+  <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}"></script>
+  
+</body>
+
+</html>
