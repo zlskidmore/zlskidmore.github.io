@@ -6,8 +6,6 @@
 
   .site-header {
     border-bottom: 2px solid $oxidized-brass;
-
-
     background: linear-gradient(to right,
     $charcoal-matte 0%,
     $charcoal-matte 35%,
@@ -21,7 +19,6 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
-
   }
   
   .sidebar {
@@ -38,7 +35,6 @@
     
     .nav-link {
     color: $antique-bronze;
-      
     }
   
     .nav-link:hover {
@@ -69,7 +65,7 @@
   a {
     color: $Polished_Brass;
     &:hover {
-      color: $Polished_Pewter;
+      color: $Dark_Copper;
     }
   }
   
@@ -89,30 +85,79 @@
 // Uses media query to automatically adjust for light preference
 // ---------------------------------------------
 @mixin light-theme {
-  
-  body {
-    background-color: #ffffff;
-    color: $off-white;
+
+  .site-header {
+    border-bottom: 2px solid $obsidian-violet;
+    background: linear-gradient(to right,
+    $Cream_Linen 0%,
+    $Cream_Linen 35%,
+    $obsidian-violet 60%,
+    $obsidian-violet 70%,
+    $oxidized-brass 95%,
+    $oxidized-brass 100%);
+    
+      .page-title {
+        background: $obsidian-violet;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
   }
   
   .sidebar {
-    background-color: #ffffff;
+    background-color: $Cream_Linen;
     color: $off-white;
+    
+    h4 {
+      color: $obsidian-violet;
+    }
+    
+    p {
+      color: $Forged_Iron;
+    }
+    
+    .nav-link {
+    color: $antique-bronze;
+    }
+  
+    .nav-link:hover {
+    color: $Burnished_Bronze !important;
+    box-shadow: 0 0 4px $Aged_Bronze;
+    }
+    
+    .nav-link.active {
+      color: $Aged_Brass !important;
+      border-left: 3px solid $Aged_Brass;
+      background-color: $Smoked_Pewter; // subtle active background
+    }
+    
+    .social-icon {
+    color: $Gunmetal_Black;
+    &:hover {
+      color: $Aged_Bronze;
+    }
+}
+  }
+  
+  body {
+    background-color: $Ivory_Mist;
+    color: $Forged_Iron;
   }
 
   a {
-    color: lighten($oxidized-brass, 10%);
+    color: $Polished_Brass;
     &:hover {
-      color: $oxidized-brass;
+      color: $Dark_Copper;
     }
   }
   
   .site-footer {
-    background-color: $charcoal-matte;
+    background-color: $Cream_Linen;
+    color: $Forged_Iron;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    color: $antique-bronze;
+    color: $obsidian-violet;
   }
+
 }
 
