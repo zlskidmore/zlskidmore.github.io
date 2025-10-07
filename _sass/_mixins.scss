@@ -3,61 +3,85 @@
 // Additional dark-specific overrides can go here
 // ---------------------------------------------
 @mixin dark-theme {
+
+  .site-header {
+    border-bottom: 2px solid $oxidized-brass;
+
+
+    background: linear-gradient(to right,
+    $charcoal-matte 0%,
+    $charcoal-matte 35%,
+    $obsidian-violet 60%,
+    $obsidian-violet 70%,
+    $oxidized-brass 95%,
+    $oxidized-brass 100%);
+    
+      .page-title {
+        background: $oxidized-brass;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+  }
+  
+  .sidebar {
+    background-color: $charcoal-matte;
+    color: $off-white;
+    
+    h4 {
+      color: $oxidized-brass;
+    }
+    
+    p {
+      color: $Light_Chrome;
+    }
+    
+    .nav-link {
+    color: $antique-bronze;
+      
+    }
+  
+    .nav-link:hover {
+    color: $Polished_Pewter !important;
+    box-shadow: 0 0 4px $Aged_Bronze;
+    }
+    
+    .nav-link.active {
+      color: $Aged_Brass !important;
+      border-left: 3px solid $Aged_Brass;
+      background-color: $Smoked_Pewter; // subtle active background
+    }
+    
+    .social-icon {
+    color: $Titanium;
+
+    &:hover {
+      color: $Light_Chrome;
+    }
+}
+  }
   
   body {
     background-color: $dim-gray;
     color: $off-white;
   }
 
-  .sidebar {
-    background-color: $charcoal-matte;
-    color: $off-white;
-  }
-
   a {
-    color: lighten($oxidized-brass, 10%);
+    color: $Polished_Brass;
     &:hover {
-      color: $oxidized-brass;
+      color: $Polished_Pewter;
     }
   }
   
   .site-footer {
     background-color: $charcoal-matte;
+    color: $Light_Chrome;
   }
   
   h1, h2, h3, h4, h5, h6 {
     color: $antique-bronze;
   }
-  --bg-color: #{$charcoal-matte};
-  --text-color: #eeeeee;
-  --link-color: #66ccff;
-  --link-hover-color: #99ddff;
-  --border-color: #333333;
 
-  --header-bg: #{$charcoal-matte};
-  --footer-bg: #{$charcoal-matte};
-  --sidebar-bg: #{$charcoal-matte};
-  --card-bg: #{$charcoal-matte};
-  --section-bg: #{$charcoal-matte};
-
-  --heading-color: #{$oxidized-brass};
-  --muted-text-color: #999999;
-  --code-text-color: #00ffaa;
-
-  --button-bg: #444444;
-  --button-text: #ffffff;
-  --button-hover-bg: #666666;
-
-  --input-bg: #2a2a2a;
-  --input-border: #444444;
-  --input-text: #ffffff;
-
-  --highlight-color: #ffcc00;
-
-  --success-color: #4caf50;
-  --warning-color: #ff9800;
-  --error-color: #f44336;
-  --info-color: #2196f3;
 }
 
 // ---------------------------------------------

@@ -1,8 +1,10 @@
 // ---------------------------------------------
-// Variables used throught the style sheets
+// Variables used throughoutt the style sheets, may or may not be used
 // ---------------------------------------------
 
-// Colors
+// ---------------------------------------------
+// Primary Dark Pallete Colors
+// ---------------------------------------------
 $charcoal-matte: #1a1d23;
 $obsidian-violet: #4b2948;
 $antique-bronze: #8c7853;
@@ -10,11 +12,68 @@ $oxidized-brass: #c0a26f;
 $off-white: #f4f1ed;
 $dim-gray: #2e3138;
 
+// ---------------------------------------------
+// Primary Light Pallete Colors
+// ---------------------------------------------
+
+// ---------------------------------------------
+// Metals for optional flair and refinement
+// ---------------------------------------------
+
+// General Metals
+$Rose_Gold: #B76E79;
+$Soft_Rose_Copper: #C08081;
+$Light_Blush_Metal: #E6C7C2;
+//Copper
+$True_Copper: #B87333;
+$Dark_Copper: #A0522D;
+$Soft_Copper: #DA8A67;
+// Bronze (Earthy, Antiqued)
+$Bronze: #CD7F32;
+$Aged_Bronze: #8C7853;
+$Copper_Bronze: #B87333;
+//Brass
+$Antique_Brass: #B5A642;
+$Polished_Brass: #D1B272;
+$Aged_Brass: #A89F68;
+// Gold (Warm, Rich)
+$Metallic_Gold: #D4AF37;
+$Dark_Goldenrod: #B8860B;
+$Standard_Gold: #FFD700;
+// Oxidized / Antique Finishes
+$Oxidized_Copper: #3B2F2F;
+$Burnished_Bronze: #4B3621;
+$Smoked_Pewter: #5A4D41;
+// Obsidian / Black Metal
+$True_Obsidian: #0F0F0F;
+$Gunmetal_Black: #1C1C1C;
+$Forged_Iron: #2F2F2F;
+// Steel / Chrome / Titanium
+$Brushed_Steel: #8B8C89;
+$Titanium: #A1A1A1;
+$Light_Chrome: #D3D3D3;
+// Mercury / LiquidMetal
+$Liquid_Mercury: #B6B6B4;
+$Light_Metallic_Mist: #D9D9D9;
+$Clouded_Silver: #C8C8C8;
+// Silver (Cool, Clean)
+$Classic_Silver: #C0C0C0;
+$Polished_Pewter: #B0B0B0;
+$Gunmetal_Silver: #A9A9A9;
+
+// ---------------------------------------------
+// Fonts
+// ---------------------------------------------
+
 // Typography
 $font-base: 'Inter', 'Helvetica Neue', Arial, sans-serif;
 $font-heading: 'Playfair Display', serif;
 $font-size-base: 16px;
 $line-height-base: 1.6;
+
+// ---------------------------------------------
+// Spacing
+// ---------------------------------------------
 
 // Spacing
 $space-xs: 0.25rem;
