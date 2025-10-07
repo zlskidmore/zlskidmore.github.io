@@ -7,7 +7,7 @@ layout: null
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title | default: site.title }}</title>
+  <title>{{ page.title }}</title>
   
   <!-- Favicon -->
   <link rel="icon" href="{{ "/assets/favicon.ico" | relative_url }}" type="image/x-icon">
@@ -34,7 +34,7 @@ layout: null
       <!-- Contact -->
       <img src="/assets/images/headshot.png" alt="Your Photo" class="img-fluid rounded-circle mb-3">
       <h4 class="text-center">Zachary L. Skidmore</h4>
-      <p class="text-center">Email: zlskidmore@gmail.com</p>
+      <p class="text-center">Professional Site and Blog</p>
       
       <!-- Divider line -->
       <hr class="sidebar-divider my-3">
@@ -64,6 +64,12 @@ layout: null
           <a href="/blog/" class="nav-link {% if page.url == '/blog/' %}active fw-bold{% endif %}">
             <i class="fa-solid fa-blog"></i>
             Blog
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/contact/" class="nav-link {% if page.url == '/contact/' %}active fw-bold{% endif %}">
+            <i class="fa-solid fa-message"></i>
+            Contact
           </a>
         </li>
       </ul>

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Research and Publications
 permalink: /published_works/
 ---
