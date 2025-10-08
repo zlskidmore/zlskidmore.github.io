@@ -1,0 +1,24 @@
+<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+
+{% if include.doi %}
+<div class="ms-auto p-3">
+  <div data-badge-popover="left"
+    data-badge-type="donut"
+    data-doi="{{ include.doi }}"
+    data-hide-no-mentions="false"
+    data-link-target="_blank"
+    class="altmetric-embed">
+  </div>
+</div>
+{% elsif include.pmid %}
+<div class="ms-auto p-3">
+  <div data-badge-popover="left"
+    data-badge-type="donut"
+    data-pmid="{{ include.pmid }}"
+    data-hide-no-mentions="false"
+    data-link-target="_blank"
+    class="altmetric-embed">
+  </div>
+</div>
+{% endif %}
+

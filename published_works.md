@@ -4,15 +4,12 @@ title: Research and Publications
 permalink: /published_works/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+<div class="container my-5">
+  <h1 class="mb-4">Publications</h1>
+  <div class="accordion" id="pubAccordion">
+    {% include accordion_pub_year.html year="2025" papers=site.data.publications.y2025 %}
+    {% include accordion_pub_year.html year="2024" papers=site.data.publications.y2024 %}
+  </div>
+</div>
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+<script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>

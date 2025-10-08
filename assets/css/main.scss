@@ -2,19 +2,23 @@
 # Front matter required to trigger Jekyll processing
 ---
 
-// 1. Variables and mixins
-//@import 'site-theme-dual-mode';  // contains color variables and theme mixins
-
-// 2. base styles
-//@import 'base';
-
-// 3. layout/global rules
-//@import 'custom';
-
+// Variables
 @import 'variables';
+
+// Mixins for dual theme
 @import 'mixins';
+
+// basic layout
 @import 'layout';
+
+// basic typography
 @import 'typography';
+
+// componets
 @import 'components';
+
+// light/dark theme switching
 @import 'theme';
+
+// one off utils
 @import 'utilities';

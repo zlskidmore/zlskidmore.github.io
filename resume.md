@@ -72,7 +72,7 @@ Senior bioinformatics and quantitative scientist with 12+ years spanning Tier 1 
 - Trained staff scientists in various bioinformatic and programming skill sets.
 - Created static websites and subsequent material for genomic visualization, precision medicine, and RNAseq. 
 - Advised and/or performed analysis on TCR clonotype repertoire, HLA prediction, neoantigen prediction, ctDNA, WGS, WES, RNAseq PMIDs: [31390566](https://pubmed.ncbi.nlm.nih.gov/31390566/), [31618044](https://pubmed.ncbi.nlm.nih.gov/31618044/), [31467059](https://pubmed.ncbi.nlm.nih.gov/31467059/), [31685621](https://pubmed.ncbi.nlm.nih.gov/31685621/), [31902496](https://pubmed.ncbi.nlm.nih.gov/31902496/), [32665297](https://pubmed.ncbi.nlm.nih.gov/32665297/), [34036230](https://pubmed.ncbi.nlm.nih.gov/34036230/), [33556121](https://pubmed.ncbi.nlm.nih.gov/33556121/), [33547198](https://pubmed.ncbi.nlm.nih.gov/33547198/)
-- Prototyped shiny application for interrogation of saturation mutagenesis assays (saturation-mutagenesis-viz)[https://github.com/griffithlab/saturation-mutagenesis-viz]
+- Prototyped shiny application for interrogation of saturation mutagenesis assays [saturation-mutagenesis-viz](https://github.com/griffithlab/saturation-mutagenesis-viz)
 
 ###### 2013 - 2017 Highlights
 - Led development and publication of Genomic Visualization in R (GenVisR) library on bioconductor DOI: [10.18129/B9.bioc.GenVisR](https://doi.org/doi:10.18129/B9.bioc.GenVisR) PMIDs: [27288499](https://pubmed.ncbi.nlm.nih.gov/27288499/), [34506690](https://pubmed.ncbi.nlm.nih.gov/34506690/)
