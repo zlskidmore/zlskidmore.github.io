@@ -124,6 +124,38 @@
   }
 }
 
+  // accordian in publications
+  .accordion {
+
+    .accordion-item {
+      background-color: $Brushed_Steel;
+      color: $Forged_Iron;
+      border: 1px solid darken($antique-bronze, 10%);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .accordion-button {
+      background-color: $charcoal-matte;
+      color: $antique-bronze;
+
+      &:hover {
+        color: $Aged_Brass;
+        background-color: $Smoked_Pewter;
+      }
+
+      &:not(.collapsed) {
+        color: $Aged_Brass;
+        background-color: $Smoked_Pewter;
+        box-shadow: inset 0 -1px 0 $Gunmetal_Black;
+      }
+
+      &:focus {
+        border-color: $antique-bronze;
+        box-shadow: 0 0 0 0.25rem rgba($antique-bronze, 0.25);
+      }
+    }
+  }
+
 }
 
 // ---------------------------------------------
@@ -258,50 +290,35 @@
   }
   
   // accordian in publications
-  // components/_accordion.scss
-
   .accordion {
-    background-color: transparent;
-    border: none;
 
-  .accordion-item {
-    background-color: $Cream_Linen;
-    border: 1px solid darken($antique-bronze, 10%);
-    border-radius: 0.75rem;
-    margin-bottom: 1rem;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  }
-
-  .accordion-button {
-    background-color: $Cream_Linen;
-    color: $antique-bronze;
-    font-weight: 600;
-    padding: 1rem 1.25rem;
-    transition: all 0.25s ease;
-
-    &:hover {
-      color: $Aged_Brass;
-      background-color: $Smoked_Pewter;
+    .accordion-item {
+      background-color: $Cream_Linen;
+      border: 1px solid darken($antique-bronze, 10%);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
-    &:not(.collapsed) {
-      color: $Aged_Brass;
-      background-color: $Smoked_Pewter;
-      box-shadow: inset 0 -1px 0 $Gunmetal_Black;
-    }
+    .accordion-button {
+      background-color: $Cream_Linen;
+      color: $antique-bronze;
 
-    &:focus {
-      border-color: $antique-bronze;
-      box-shadow: 0 0 0 0.25rem rgba($antique-bronze, 0.25);
+      &:hover {
+        color: $Aged_Brass;
+        background-color: $Smoked_Pewter;
+      }
+
+      &:not(.collapsed) {
+        color: $Aged_Brass;
+        background-color: $Smoked_Pewter;
+        box-shadow: inset 0 -1px 0 $Gunmetal_Black;
+      }
+
+      &:focus {
+        border-color: $antique-bronze;
+        box-shadow: 0 0 0 0.25rem rgba($antique-bronze, 0.25);
+      }
     }
   }
-
-  .accordion-body {
-    padding: 1.25rem;
-  }
-}
-
 
 }
 

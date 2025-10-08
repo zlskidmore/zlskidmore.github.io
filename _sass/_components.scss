@@ -83,3 +83,25 @@
     font-weight: 500;
   }
 }
+
+// ---------------------------------------------
+// Accordian for publications
+// ---------------------------------------------
+.accordion {
+
+  .accordion-item {
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+
+  .accordion-button {
+    font-weight: 600;
+    padding: 1rem 1.25rem;
+    transition: all 0.25s ease;
+  }
+
+  .accordion-body {
+    padding: 1.25rem;
+  }
+}
