@@ -19,7 +19,7 @@
           </h5>
           <p class="mb-1"><strong>Authors:</strong> {{ paper.authors }}</p>
           <p class="mb-0"><strong>Journal:</strong> {{ paper.journal }} ({{ include.year }})</p>
-      </div>
+    </div>
           {% include altmetric_badge.html doi=paper.doi pmid=paper.pmid %}
       {% endfor %}
     </div>

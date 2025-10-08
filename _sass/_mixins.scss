@@ -77,6 +77,52 @@
   h1, h2, h3, h4, h5, h6 {
     color: $antique-bronze;
   }
+  
+// Contact form styles
+#contact-form {
+  background-color: $dim-gray; // dark background
+  color: $off-white; // light text
+  box-shadow: 0 0 10px $charcoal-matte;
+
+  // Label text
+  .form-label {
+    color: $Metallic_Gold; // gold accent for labels
+  }
+
+  // Input fields and textarea
+  .form-control {
+    background-color: $charcoal-matte;
+    color: $off-white;
+    border: 1px solid $Forged_Iron;
+
+
+    &:focus {
+      background-color: $Forged_Iron;
+      border-color: $Dark_Copper;
+      box-shadow: 0 0 0 0.25rem $Dark_Copper;
+    }
+
+    &::placeholder {
+      color: $Classic_Silver;
+    }
+  }
+
+  // Submit button
+  .btn-primary {
+    background-color: $obsidian-violet;
+    border-color: $obsidian-violet;
+
+    &:hover {
+      background-color: $Dark_Copper;
+      border-color: $Dark_Copper;
+    }
+  }
+
+  // Success/failure messages
+  #form-status {
+    color: $obsidian-violet;
+  }
+}
 
 }
 
@@ -86,6 +132,7 @@
 // ---------------------------------------------
 @mixin light-theme {
 
+  // actual site header
   .site-header {
     border-bottom: 2px solid $obsidian-violet;
     background: linear-gradient(to right,
@@ -103,6 +150,7 @@
       }
   }
   
+  // left sidebar
   .sidebar {
     background-color: $Cream_Linen;
     color: $off-white;
@@ -127,7 +175,7 @@
     .nav-link.active {
       color: $Aged_Brass !important;
       border-left: 3px solid $Aged_Brass;
-      background-color: $Smoked_Pewter; // subtle active background
+      background-color: $Smoked_Pewter;
     }
     
     .social-icon {
@@ -135,14 +183,16 @@
     &:hover {
       color: $Aged_Bronze;
     }
-}
   }
+}
   
+  // body
   body {
     background-color: $Ivory_Mist;
     color: $Forged_Iron;
   }
-
+  
+  // links
   a {
     color: $Polished_Brass;
     &:hover {
@@ -150,14 +200,108 @@
     }
   }
   
+  // footer
   .site-footer {
     background-color: $Cream_Linen;
     color: $Forged_Iron;
   }
-  
+
+  // headers
   h1, h2, h3, h4, h5, h6 {
     color: $obsidian-violet;
   }
+  
+  // Contact form styles
+  #contact-form {
+    background-color: $Cream_Linen; // dark background
+    color: $off-white; // light text
+    box-shadow: 0 0 10px $Ivory_Mist;
+
+    // Label text
+    .form-label {
+      color: $Aged_Bronze; // gold accent for labels
+    }
+
+    // Input fields and textarea
+    .form-control {
+      background-color: $Ivory_Mist;
+      color: $Forged_Iron;
+      border: 1px solid $Forged_Iron;
+
+
+      &:focus {
+        background-color: $Ivory_Mist;
+        border-color: $Dark_Copper;
+        box-shadow: 0 0 0 0.25rem $Dark_Copper;
+      }
+
+      &::placeholder {
+        color: $Classic_Silver;
+      }
+    }
+
+    // Submit button
+    .btn-primary {
+      background-color: $obsidian-violet;
+      border-color: $obsidian-violet;
+
+      &:hover {
+        background-color: $Dark_Copper;
+        border-color: $Dark_Copper;
+      }
+    }
+
+    // Success/failure messages
+    #form-status {
+      color: $obsidian-violet;
+    }
+  }
+  
+  // accordian in publications
+  // components/_accordion.scss
+
+  .accordion {
+    background-color: transparent;
+    border: none;
+
+  .accordion-item {
+    background-color: $Cream_Linen;
+    border: 1px solid darken($antique-bronze, 10%);
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .accordion-button {
+    background-color: $Cream_Linen;
+    color: $antique-bronze;
+    font-weight: 600;
+    padding: 1rem 1.25rem;
+    transition: all 0.25s ease;
+
+    &:hover {
+      color: $Aged_Brass;
+      background-color: $Smoked_Pewter;
+    }
+
+    &:not(.collapsed) {
+      color: $Aged_Brass;
+      background-color: $Smoked_Pewter;
+      box-shadow: inset 0 -1px 0 $Gunmetal_Black;
+    }
+
+    &:focus {
+      border-color: $antique-bronze;
+      box-shadow: 0 0 0 0.25rem rgba($antique-bronze, 0.25);
+    }
+  }
+
+  .accordion-body {
+    padding: 1.25rem;
+  }
+}
+
 
 }
 

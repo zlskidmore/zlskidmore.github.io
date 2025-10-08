@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Blog
+permalink: /blog/
 pagination:
   enabled: true
   per_page: 1

@@ -1,3 +1,6 @@
+// ---------------------------------------------
+// on/off theme switch in navbar
+// ---------------------------------------------
 .theme-toggle.custom-switch {
   display: flex;
   justify-content: center;
@@ -48,5 +51,35 @@
     .moon {
       opacity: 0;
     }
+  }
+}
+
+// ---------------------------------------------
+// Contact Form on contact page
+// ---------------------------------------------
+#contact-form {
+
+  padding: 2rem;
+  border-radius: 0.75rem;
+
+  // Label text
+  .form-label {
+    font-weight: 600;
+  }
+
+  // Input fields and textarea
+  .form-control {
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+  }
+
+  // Submit button
+  .btn-primary {
+    font-weight: 600;
+  }
+
+  // Success/failure messages
+  #form-status {
+    font-weight: 500;
   }
 }

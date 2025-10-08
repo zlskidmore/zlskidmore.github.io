@@ -4,6 +4,8 @@ title: Contact
 permalink: /contact/
 ---
 
+### Get in Touch!
+
 <!-- Contact Section -->
 <section class="py-5">
   <div class="container">
