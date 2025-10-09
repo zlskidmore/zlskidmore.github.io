@@ -1,0 +1,6 @@
+
+Allow: /
+
+# Point crawlers to your sitemap
+Sitemap: https://zlskidmore.github.io/sitemap.xml
+

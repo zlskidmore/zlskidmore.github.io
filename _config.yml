@@ -2,16 +2,21 @@
 # Site Configuration
 # ========================================
 
-title: Zachary Skidmore
+title: Zachary L. Skidmore
 #email:
 description: >
   Bioinformatics, data science, and reflections at the intersection of technology and meaning.
 baseurl: ""          # Leave empty unless deploying under a subpath (e.g. /blog)
-#url: "https://yourdomain.com"  # Change to your site's canonical URL
+url: "https://zlskidmore.github.io"  # Change to your site's canonical URL
 
 # Social / SEO
-twitter_username: zlskidmore
 github_username: zlskidmore
+
+social:
+  name: Zachary L. Skidmore
+  links:
+    - https://github.com/zlskidmore
+    - https://bsky.app/profile/your-handle.bsky.social
 
 # ========================================
 #  Build Settings
