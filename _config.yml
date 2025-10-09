@@ -35,6 +35,7 @@ plugins:
   - jekyll-feed
   - jekyll-paginate-v2
   - jekyll-seo-tag
+  - jekyll-sitemap
   
 sass:
   sass_dir: _sass
