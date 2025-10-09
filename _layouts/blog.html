@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+{% comment %}
+  This layout is used for the blog homepage with tag-filterable cards.
+{% endcomment %}
+
+<div class="container py-5">
+  <div class="text-center mb-4">
+    <h1>{{ page.title | default: "Blog" }}</h1>
+    <div id="tag-filters" class="btn-group flex-wrap" role="group"></div>
+  </div>
+
+  <div class="row" id="post-list">
+    {% assign all_tags = "" | split: "" %}
+    {% for post in site.posts %}
+      {% assign all_tags = all_tags | concat: post.tags %}
+      {% include blog_card.html post=post %}
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Custom js for blog filtering -->
+<script src="{{ '/assets/js/blog.js' | relative_url }}"></script>

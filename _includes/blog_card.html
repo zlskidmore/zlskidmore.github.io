@@ -1,0 +1,16 @@
+<div class="col-md-4 mb-4 post-card" data-tags="{{ include.post.tags | join: ' ' }}">
+  <div class="card h-100 shadow-sm">
+    <div class="card-body">
+      <h5 class="card-title">{{ include.post.title }}</h5>
+      <p class="card-text">{{ include.post.excerpt | strip_html | truncate: 100 }}</p>
+    </div>
+    <div class="card-footer bg-white border-0">
+      <small class="text-muted">
+        {% for tag in include.post.tags %}
+          <span class="badge bg-secondary me-1">{{ tag }}</span>
+        {% endfor %}
+      </small>
+      <a href="{{ include.post.url | relative_url }}" class="btn btn-sm btn-outline-primary float-end">Read more</a>
+    </div>
+  </div>
+</div>
