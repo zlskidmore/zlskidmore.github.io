@@ -1,75 +1,66 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
+# ========================================
+# Site Configuration
+# ========================================
 
-title: Your awesome title
-email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  zlskidmore
+title: Zachary Skidmore
+#email:
+description: >
+  Bioinformatics, data science, and reflections at the intersection of technology and meaning.
+baseurl: ""          # Leave empty unless deploying under a subpath (e.g. /blog)
+#url: "https://yourdomain.com"  # Change to your site's canonical URL
 
-# Build settings
-theme: minima
+# Social / SEO
+twitter_username: zlskidmore
+github_username: zlskidmore
+
+# ========================================
+#  Build Settings
+# ========================================
+
+theme: minima        # Can be overridden if you're using custom layouts
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
-  
+
+markdown: kramdown
+highlighter: rouge
+
 sass:
-  sass_dir: _sass
+  sass_dir: assets/css
   style: compressed
 
-# Pagination defaults (jekyll-paginate-v2)
-pagination:
-  enabled: true
-  per_page: 5
-  permalink: /blog/page/:num/   # page URLs will be /blog/page/2/ etc.
-  title: ':title - page :num'
-  sort_field: 'date'
-  sort_reverse: true
-  trail:
-    before: 2
-    after: 2
-  # collection defaults to posts; you usually don't need to change it
-  collection: 'posts'
+# Optional: Clean URLs (no .html)
+permalink: /:categories/:title/
 
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+# ========================================
+# Collections & Defaults
+# ========================================
+
+collections:
+  posts:
+    output: true
+    permalink: /blog/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Zach Skidmore"
+      comments: false
+
+# ========================================
+# Exclusions
+# ========================================
+
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+  - README.md
+
