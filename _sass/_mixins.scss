@@ -156,6 +156,62 @@
     }
   }
 
+
+  // BLOG POST CARD STYLES
+  .post-card .card {
+    background-color: $charcoal-matte;
+    border: 1px solid $antique-bronze;
+    box-shadow: 0 2px 8px $Gunmetal_Black;
+  }
+  
+  .post-card .card-title {
+    color: $antique-bronze;
+  }
+  
+  .post-card .card-text {
+    color: $off-white;
+  }
+  
+  .post-card .card-footer {
+  background-color: $Brushed_Steel !important;
+  }
+  
+  .post-card .badge {
+    color: $Titanium;
+    background-color: $charcoal-matte !important;
+  }
+  
+  .post-card .btn-outline-primary {
+    color: $antique-bronze;
+    background-color: $charcoal-matte;
+    border-color: $charcoal-matte;
+
+    &:hover {
+      background-color: $Smoked_Pewter;
+      color: $Aged_Brass;
+    }
+  }
+  
+  #tag-filters {
+    .btn {
+      background-color: $charcoal-matte;
+      color: $antique-bronze;
+      border: 1px solid $Gunmetal_Black;
+  
+      &:hover {
+        background-color: $Smoked_Pewter;
+        color: $Aged_Brass;
+        border-color: $Gunmetal_Black;
+      }
+  
+      &.active {
+        background-color: $Dark_Copper;     // 🔧 active background (change this to match your accent color)
+        color: $Classic_Silver;                // 🔧 active text color
+        border-color: $Dark_Copper;
+        box-shadow: 0 0 8px $Soft_Copper;  // 🔧 subtle glow
+      }
+    }
+  }
 }
 
 // ---------------------------------------------
@@ -320,5 +376,60 @@
     }
   }
 
+  // BLOG POST CARD STYLES
+  .post-card .card {
+    background-color: $Cream_Linen;
+    border: 1px solid $antique-bronze;
+    box-shadow: 0 2px 8px $Gunmetal_Black;
+  }
+  
+  .post-card .card-title {
+    color: $antique-bronze;
+  }
+  
+  .post-card .card-text {
+    color: $Forged_Iron;
+  }
+  
+  .post-card .card-footer {
+  background-color: $Smoked_Pewter !important;
+  }
+  
+  .post-card .badge {
+    color: $Classic_Silver;
+    background-color: $obsidian-violet !important;
+  }
+  
+  .post-card .btn-outline-primary {
+    color: $Classic_Silver;
+    background-color: $obsidian-violet;
+    border-color: $obsidian-violet;
+
+    &:hover {
+      background-color: $Dark_Copper;
+      color: $Classic_Silver;
+    }
+  }
+  
+    #tag-filters {
+    .btn {
+      background-color: $Cream_Linen;
+      color: $antique-bronze;
+      border: 1px solid $Gunmetal_Black;
+  
+      &:hover {
+        background-color: $Smoked_Pewter;
+        color: $Aged_Brass;
+        border-color: $Gunmetal_Black;
+      }
+  
+      &.active {
+        background-color: $Dark_Copper;     // 🔧 active background (change this to match your accent color)
+        color: $Classic_Silver;                // 🔧 active text color
+        border-color: $Dark_Copper;
+        box-shadow: 0 0 8px $Soft_Copper;  // 🔧 subtle glow
+      }
+    }
+  }
 }
 
