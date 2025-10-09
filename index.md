@@ -1,5 +1,6 @@
 ---
 layout: default
+description: "Bioinformatician and data scientist exploring cancer genomics, data visualization, and computational biology."
 title: Home
 ---
 # Welcome
