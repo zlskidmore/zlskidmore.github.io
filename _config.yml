@@ -26,12 +26,13 @@ theme: minima        # Can be overridden if you're using custom layouts
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 markdown: kramdown
 highlighter: rouge
 
 sass:
-  sass_dir: assets/css
+  sass_dir: _sass
   style: compressed
 
 # Optional: Clean URLs (no .html)
