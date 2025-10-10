@@ -1,7 +1,7 @@
 y2025:
   - title: "Genome-wide analyses of cell-free DNA for therapeutic monitoring of patients with pancreatic cancer"
     authors: "Hruban C, Bruhm DC, Chen IM, Koul S, Annapragada AV, Vulpescu NA, Short S, Theile S, Boyapati K, Alipanahi B, Skidmore ZL, Leal A, Cristiano S, Adleff V, Johannsen JS, Scharpf RB, Foda ZH, Phallen J, Velculescu VE."
-    journal: "Nature Genetics"
+    journal: "Sci Adv."
     url: "https://doi.org/10.1126/sciadv.ads5002"
     doi: "10.1126/sciadv.ads5002"
     pmid: "40397745"
@@ -57,7 +57,7 @@ y2023:
     doi: "10.1016/j.isci.2023.107937"
     pmid: "37810214"
     
-  - title: " Autologous humanized PDX modeling for immuno-oncology recapitulates features of the human tumor microenvironment"
+  - title: "Autologous humanized PDX modeling for immuno-oncology recapitulates features of the human tumor microenvironment"
     authors: "Chiorazzi M, Martinek J, Krasnick B, Zheng Y, Robbins KJ, Qu R, Kaufmann G, Skidmore Z, Juric M, Henze LA, Brösecke F, Adonyi A, Zhao J, Shan L, Sefik E, Mudd J, Bi Y, Goedegebuure SP, Griffith M, Griffith O, Oyedeji A, Fertuzinhos S, Garcia-Milian R, Boffa D, Detterbeck F, Dhanasopon A, Blasberg J, Judson B, Gettinger S, Politi K, Kluger Y, Palucka K, Fields RC, Flavell RA."
     journal: "J Immunother Cancer."
     url: "http://dx.doi.org/10.1136/jitc-2023-006921"
@@ -129,7 +129,6 @@ y2022:
     pmid: "34780623"
 
 y2021:
-
   - title: "In silico epitope prediction analyses highlight the potential for distracting antigen immunodominance with allogeneic cancer vaccines"
     authors: "James CA, Ronning P, Cullinan D, Cotto KC, Barnell EK, Campbell KM, Skidmore ZL, Sanford DE, Goedegebuure SP, Gillanders WE, Griffith OL, Hawkins WG, Griffith M."
     journal: "Cancer Res Commun."
@@ -185,7 +184,7 @@ y2021:
     url: "https://doi.org/10.1200/PO.20.00182"
     doi: "10.1200/PO.20.00182"
     pmid: "34036230"
-    
+
 y2020:
   - title: "Neoadjuvant and Adjuvant Pembrolizumab in Resectable Locally Advanced, Human Papillomavirus-Unrelated Head and Neck Cancer: A Multicenter, Phase II Trial"
     authors: "Uppaluri R, Campbell KM, Egloff AM, Zolkind P, Skidmore ZL, Nussenbaum B, Paniello RC, Rich JT, Jackson R, Pipkorn P, Michel LS, Ley J, Oppelt P, Dunn GP, Barnell EK, Spies NC, Lin T, Li T, Mulder DT, Hanna Y, Cirlan I, Pugh TJ, Mudianto T, Riley R, Zhou L, Jo VY, Stachler MD, Hanna GJ, Kass J, Haddad R, Schoenfeld JD, Gjini E, Lako A, Thorstad W, Gay HA, Daly M, Rodig SJ, Hagemann IS, Kallogjeri D, Piccirillo JF, Chernock RD, Griffith M, Griffith OL, Adkins DR."
@@ -254,7 +253,7 @@ y2018:
     
   - title: "Oral Cavity Squamous Cell Carcinoma Xenografts Retain Complex Genotypes and Intertumor Molecular Heterogeneity"
     authors: "Campbell KM, Lin T, Zolkind P, Barnell EK, Skidmore ZL, Winkler AE, Law JH, Mardis ER, Wartman LD, Adkins DR, Chernock RD, Griffith M, Uppaluri R, Griffith OL."
-    journal: "Nat Commun."
+    journal: "Cell Rep."
     url: "https://doi.org/10.1016/j.celrep.2018.07.058"
     doi: "10.1016/j.celrep.2018.07.058"
     pmid: "30134176"
@@ -319,7 +318,7 @@ y2016:
     
   - title: "A genomic analysis of Philadelphia chromosome-negative AML arising in patients with CML"
     authors: "Krysiak K, Christopher MJ, Skidmore ZL, Demeter RT, Magrini V, Kunisaki J, O'Laughlin M, Duncavage EJ, Miller CA, Ozenberger BA, Griffith M, Wartman LD, Griffith OL."
-    journal: "Blood Cancer"
+    journal: "Blood Cancer J."
     url: "https://doi.org/10.1038/bcj.2016.18"
     doi: "10.1038/bcj.2016.18"
     pmid: "27058228"

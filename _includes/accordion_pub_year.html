@@ -1,26 +1,36 @@
 <div class="accordion-item">
-  <h2 class="accordion-header" id="heading-{{ include.year }}">
+  {% assign year_key = include.year %}
+  {% assign papers = include.papers %}
+
+  <h2 class="accordion-header" id="heading-{{ year_key }}">
     <button class="accordion-button collapsed" type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#collapse-{{ include.year }}"
+            data-bs-target="#collapse-{{ year_key }}"
             aria-expanded="false"
-            aria-controls="collapse-{{ include.year }}">
-      {{ include.year }}
+            aria-controls="collapse-{{ year_key }}">
+      {{ year_key }}
+      <span class="badge bg-secondary ms-2">{{ papers | size }}</span>
     </button>
   </h2>
-  <div id="collapse-{{ include.year }}" class="accordion-collapse collapse"
-       aria-labelledby="heading-{{ include.year }}"
+
+  <div id="collapse-{{ year_key }}" class="accordion-collapse collapse"
+       aria-labelledby="heading-{{ year_key }}"
        data-bs-parent="#pubAccordion">
+
     <div class="d-flex justify-content-between align-items-start flex-wrap">
-      {% for paper in include.papers %}
-    <div class="me-auto pe-3">
+      {% for paper in papers %}
+        <div class="me-auto pe-3 mb-3">
           <h5 class="mb-1">
-            <a href="{{ paper.url }}">{{ paper.title }}</a>
+            <a href="{{ paper.url | escape }}" target="_blank" rel="noopener">
+              {{ paper.title }}
+            </a>
           </h5>
           <p class="mb-1"><strong>Authors:</strong> {{ paper.authors }}</p>
-          <p class="mb-0"><strong>Journal:</strong> {{ paper.journal }} ({{ include.year }})</p>
+          <p class="mb-0">
+            <strong>Journal:</strong> {{ paper.journal }} ({{ year_key }})
+          </p>
           {% include altmetric_badge.html doi=paper.doi pmid=paper.pmid %}
-    </div>
+        </div>
       {% endfor %}
     </div>
   </div>
