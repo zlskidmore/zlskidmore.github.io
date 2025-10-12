@@ -212,6 +212,11 @@
       }
     }
   }
+  
+  .glow-frame {
+    border: 2px solid $antique-bronze; // Or use hex if you prefer
+    box-shadow: 0 0 12px $antique-bronze; // Or hardcoded rgba
+  }
 }
 
 // ---------------------------------------------
@@ -424,12 +429,17 @@
       }
   
       &.active {
-        background-color: $Dark_Copper;     // 🔧 active background (change this to match your accent color)
-        color: $Classic_Silver;                // 🔧 active text color
+        background-color: $Dark_Copper;
+        color: $Classic_Silver;
         border-color: $Dark_Copper;
-        box-shadow: 0 0 8px $Soft_Copper;  // 🔧 subtle glow
+        box-shadow: 0 0 8px $Soft_Copper;
       }
     }
+  }
+  
+  .glow-frame {
+  border: 2px solid $obsidian-violet; // Or use hex if you prefer
+  box-shadow: 0 0 12px $obsidian-violet; // Or hardcoded rgba
   }
 }
 

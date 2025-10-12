@@ -130,3 +130,32 @@
   padding: 0;
   overflow: hidden;
 }
+
+// ---------------------------------------------
+// Figure for posts
+// ---------------------------------------------
+  .glow-frame {
+  border-radius: 8px;
+  max-width: 800px;
+  width: 60%;
+  margin: 1rem auto;
+  display: block;
+}
+
+.glow-figure {
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 100%;
+
+  figcaption {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
