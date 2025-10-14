@@ -137,24 +137,6 @@ Tool: SoupX can help estimate and subtract ambient signal.
 - If your UMAP looks like a streak or blob, something went wrong.
 - Common cause: over-normalization or failure to remove batch effects.
 
-6) After we have specific traits via our PCA, we can determine which cells are most similar to each other by clustering, this is accomplished by:
-1. Build a network-graph based on trait similarity derived from the PCA. In essence determine how similar or disimillar cells are from one another forming groups.
-2. Determine clusters, in other words once we know how similar or disimilar cells are define boundaries to categorize cells into distinct groups
-
-7) At this stage you would typically create a UMAP or tSNE plot to visualize the now distnict groups of cells. If you are familiar with PCA, think of this as a bi-plot, but keep in mind that this is only two dimensions. It can be used to visualize the single -cell experiment however and is commonly used in publications.
-
-8) As a final step we have identified clusters of cells corresponding to traits based off the transcriptomic profile, but we have yet to define them. We don't know what cluster of cells corresponds to T-cells or myeloid cells, what are healthy cells vs cancer. To do this we must identify specific biomarkers or hallmarks. What this means is performing almost a differential expression analysis, we are looking to see what transcripts, based on abundance estimates, define groups. We can then assign labels like "T-cells" to groups with inference or through mathematical means if we have a pre-defined list of biomarkers.
-
-### Common pitfalls and Red flags
-
-A complete breakdown of all pitfalls and ways to address QC issues is beyond the scope of this posts, but is perhaps a future topic. Instead I will mention a few nuances to be aware of. Let's start by going back to our standard single-cell workflow, specifically the microfluidics. In an ideal world a GEM would contain a single cell, with a single bead, this happens most of the time, but not always. It is possible for the emulsion bead, the combination of barcoded read and cell contained in it's own mini reaction chamber to diverage from this expectation. This is illustrated in the field sketch below, in a) we see an empty droplet, the barcoded bead is encapsulated but there is no cell, and so no usefull data will be generated. Conversley in c) we see another deviation from our expectation, the emulsion bead has encapsulated two cells, known as a doublet, this is problematic as both of these cells will share the same cell barcode, even though they could be fundamentally different. Additional combination, triplets for example, can form as well, fortunately these occurences are relatively rare and are easily removed as part of most pre-QC workflows. Specifically, total cell count cutoff's are generally applied, imagine a density plot of all reads for each cell, a doublet will have aprox. twice the number of reads as expected, and can be cut off using simple filters designed to capture that.
-
-Mentioned in the preliminary QC step above, another pitfall relates to the percentage of MT DNA in a cell, while rates can vary amongst tissues, mercer et al. 2011 reports rates varying from 5-30%, rates should not be excessivley high. Greater than 70%, depending on the expected cells, would be cause for extreme suspicoun, and could be dead or dying cells, perhaps due to too much mechanical distruption while creating the cell suspensions. Whatever the cause, a high MT percentage indicates the cells plasma membrane has been compromised. Fortunately these can be easily removed by calculating the proportion of MT gene abundance in relation to the entire library and filtering out those cells which are outliers.
-
-Of further concern would be the expression of MALAT1 or other "house-keeping" genes in every cluster of cells identified. This would be abnormal, and highly indicative of Ambient RNA contamination. This is a slightly different problem than what is previously described and indicates that free floating transcripts from dying cells were released into the cell suspension. These are then encapsulated in the emulsion bead and amplified along with the rest of the captured cells. I will briefly mention that there are tools that are designed to correct for this, one prominent one being the R library soupX, however optimization of the wet-lab protocol would be the ideal fix.
-
-Lastly I will mention that distinct clusters should be observable in the UMAP plot in almost every conceivable instance. If there is a single cluster or one large streak, the problem is likley one of over-normalization and not that a single-cell type was sequenced.
-
 ### Tools & Resources
 - Seurat (R) – Most popular single-cell toolkit
 - SingleCellExperiment (R) – More modular S4 framework
