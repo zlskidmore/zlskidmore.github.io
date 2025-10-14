@@ -110,6 +110,8 @@ Normalized Count = (UMI / Total UMIs per cell) × scale factor -> log-transforme
   - Run `FindMarkers()` (in Seurat) or equivalent to detect differentially expressed genes.
   - Use known markers (e.g., CD3E for T cells) to label clusters.
 
+<hr>
+
 ### Common Pitfalls & Red Flags
 Single-cell workflows are powerful, but not foolproof. Here are some things to watch out for:
 
@@ -140,6 +142,8 @@ Single-cell workflows are powerful, but not foolproof. Here are some things to w
 4. Flat or Indistinct UMAPs
 - If your UMAP looks like a streak or blob, something went wrong.
 - Common cause: over-normalization or failure to remove batch effects.
+
+<hr> 
 
 ### Tools & Resources
 - [Seurat](https://satijalab.org/seurat/) (R) – Most popular single-cell toolkit
