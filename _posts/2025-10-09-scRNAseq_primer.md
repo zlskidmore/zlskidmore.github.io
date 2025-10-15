@@ -149,7 +149,7 @@ Single-cell workflows are powerful, but not foolproof. Here are some things to w
 - [Seurat](https://satijalab.org/seurat/) (R) – Most popular single-cell toolkit
 - [SingleCellExperiment](https://bioconductor.org/packages/release/bioc/html/SingleCellExperiment.html) (R) – More modular S4 framework
 - [SoupX](https://github.com/constantAmateur/SoupX) (R) – Ambient RNA correction
-- [DoubletFinder](https://github.com/chris-mcginnis-ucsf/DoubletFinder) - Detect doublet's in single-cell sequencing data
+- [DoubletFinder](https://github.com/chris-mcginnis-ucsf/DoubletFinder) (R)- Detect doublet's in single-cell sequencing data
 - [rnabio.org: Module 8](https://rnabio.org/module-08-scrna/0008/01/01/Intro_to_scRNA/) – Hands-on single-cell RNA-seq tutorial
-
+- [CRI Bioinformatics Workshop](https://cancer-research-institute.github.io/CRI_bioinformatics_workshop/course.html) - Includes an overview/slides on both single-cell RNA-seq and Spatial Transcriptomics
 
