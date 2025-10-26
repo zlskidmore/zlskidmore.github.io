@@ -28,8 +28,8 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
-markdown: kramdown
 highlighter: rouge
+markdown: kramdown
 
 sass:
   sass_dir: _sass

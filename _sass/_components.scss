@@ -159,3 +159,24 @@
   display: table;
   clear: both;
 }
+
+.glow-frame-left {
+  border-radius: 8px;
+  max-width: 800px;
+  width: 60%;
+  margin: 1rem 0; 
+  display: block;
+}
+
+.glow-figure-left {
+  text-align: left;
+  margin: 2rem 0;
+  max-width: 100%;
+
+  figcaption {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
+}
+

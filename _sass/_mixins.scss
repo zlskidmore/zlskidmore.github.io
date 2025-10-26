@@ -213,7 +213,7 @@
     }
   }
   
-  .glow-frame {
+  .glow-frame, .glow-frame-left {
     border: 2px solid $antique-bronze; // Or use hex if you prefer
     box-shadow: 0 0 12px $antique-bronze; // Or hardcoded rgba
   }
@@ -437,7 +437,7 @@
     }
   }
   
-  .glow-frame {
+  .glow-frame, .glow-frame-left {
   border: 2px solid $obsidian-violet; // Or use hex if you prefer
   box-shadow: 0 0 12px $obsidian-violet; // Or hardcoded rgba
   }

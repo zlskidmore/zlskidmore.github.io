@@ -145,3 +145,5 @@ departureDeviationTB_long <- departureDeviationTB_wide %>%
 departureDeviationDT <- flightsDT[,.(avgDelay=mean(dep_delay, na.rm=TRUE)),by=.(month, carrier)]
 departureDeviationDT_wide <- dcast(departureDeviationDT, carrier~month, value.var='avgDelay')
 departureDeviationDT_long <- melt(departureDeviationDT_wide, id.vars=c('carrier'), measure.vars=c(2:5), variable.name='month', value.name='avgDelay')
+
+
