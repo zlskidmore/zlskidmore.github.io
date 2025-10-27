@@ -389,9 +389,9 @@ This guide was develped on R version 4.4.1, please find specific package version
 <div class="clearfix"></div>
 
 <figure class="glow-figure">
-  <img src="{{ site.baseurl }}/assets/posts/Rosetta_Stone_of_Data_Munging_in_R/sessioninfo.png"
-       style="max-width: 1400px;"
-       alt="Gel bead-in-EMulsion" class="glow-frame">
+  <img src="{{ site.baseurl }}/assets/posts/Rosetta_Stone_of_Data_Munging_in_R/sessionInfo.png"
+       style="max-width: 1000px;"
+       alt="R session info" class="glow-frame">
   <figcaption>Output of sessionInfo()</figcaption>
 </figure>
 
