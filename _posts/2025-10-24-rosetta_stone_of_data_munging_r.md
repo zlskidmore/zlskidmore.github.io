@@ -30,8 +30,9 @@ library(data.table)
 library(nycflights13) # data to manipulate
 ```
 ### Data Structure
-Before diving in, I think it is usefull to get a basic idea of what the data we will be working with looks like. We will primarily be workign with the flights data object, it should be available if you've run the `library(nycflights13)` function call above. This object is currently in a tibble, which is a native format of the `tidyverse`, we'll get to that in the next section, but for now it is worth knowing that all of these basic functions we'll be using, `nrow()`, `ncol()`, `summary()`, etc. are basic, almost universal methods and will function regardless of the data object type, at least for what we are discussing today.
+Before diving in, it’s helpful to get a basic sense of the data we’ll be working with. Our primary dataset will be `flights`, which becomes available after loading `nycflights13` via `library(nycflights13)`. By default, `flights` is a tibble, a data structure introduced by the `tidyverse`. We’ll explore that more in the next section.
 
+For now, what matters is that common base-R functions such as `nrow()`, `ncol()`, `dim()`, `summary()`, and `str()` work consistently across `data frames`, `tibbles`, and `data.table` objects—at least for the level of inspection we’ll be doing here. So, don’t worry if you’re not familiar with tibbles yet; these initial exploratory tools behave almost universally.
 <hr>
 To begin we will look at the following:
 - `nrow()` will give is the number of rows
@@ -59,7 +60,7 @@ dim(flights) # get dimensions of object
 	- the rows and columns
 	- columns names
 	- column class, integer, character, numeric, etc.
-	- the first few values in the colum
+	- the first few values in the column
 
 - `summary()` will output basic summary statistics for each column
 ```r
@@ -110,123 +111,234 @@ view(flights) # view object manually
 
 <hr>
 
-As we can see `flights` holds basic flight information for the year 2013 for new yourk airports. The data itself should be fairly self-explanatory but don't worry if you're not sure what each column is, while usefull just to more intuitively understand why we are doing something for the upcoming sections, it's not strictly necessary.
+As we can see, flights contains basic flight information for the year 2013, specifically for New York City airports. The dataset is fairly self-explanatory at a glance, but don’t worry if you're not familiar with every column. While having a rough idea of the variables can help you understand the logic behind certain operations in later sections, it’s not strictly necessary to follow along.
 ### Formats
+Now that we have a basic understanding of the data, it’s time to talk about the formats unique to each paradigm. Most people familiar with R will already recognize the classic data.frame structure, which has been a workhorse in base R for decades. If you’re new to it, don’t worry—it's essentially a collection of base R vectors (e.g., integer, character, logical) organized into a tabular structure.
+
+In the tidyverse, tibbles are used extensively. These are enhanced data frames designed for better integration with tidyverse functions and more user-friendly behavior. For example, when printing a tibble (like flights, which is already in tibble format), you'll notice:
+- Output is limited to the first 10 rows by default
+- Column types are displayed under each column name
+- Negative numbers are color-highlighted for readability
+- The magrittr pipe `%>%` is used extensively
+
+Tibbles are also technically data.frames under the hood, so nearly all base R functions will work with them as well.
+
+Then there’s data.table, a high-performance extension of data.frame that’s particularly optimized for speed and memory efficiency. Like tibbles, data.tables display column metadata when printed. Unlike tibbles, however, they show the first 5 and last 5 rows by default, which I find especially useful for spotting outliers or missing values early on.
+One important distinction with data.table is how it handles memory: by default, it modifies objects by reference. That means if you assign a data.table to a new variable, both variables still point to the same underlying data. Any changes to one will affect the other. To create an actual copy, you need to use the copy() function explicitly.
+
+Below, we use the following conversion functions to coerce the same dataset into the formats used by each paradigm:
+
+- `as.data.frame()` -> converts to a base R data frame
+- `as_tibble()` -> converts to a tibble (tidyverse)
+- `as.data.table()` -> converts to a data.table (data.table package)
 
 ```r
-#######################
-##### Conversions #####
-flightsDF <- as.data.frame(flights) # base R
-flightsTB <- as_tibble(flights) # dplyr
-flightsDT <- as.data.table(flights) # data.table
+# Base-R
+flightsDF <- as.data.frame(flights)
+
+# Tidyverse
+flightsTB <- as_tibble(flights)
+
+# Data.table
+flightsDT <- as.data.table(flights)
 ```
 ### Basic Data Manipulation
+That’s enough preamble—for now, let’s get into the actual data manipulation. As I mentioned earlier, the goal here isn’t to exhaustively explain every function or syntax nuance within each package. Instead, the following sections will serve as a Rosetta Stone of data munging in R.
 
+Each example is presented in three syntaxes:
+- Base-R
+- dplyr (from the tidyverse)
+- data.table
+
+In most cases, the output across these approaches will be equivalent or near-equivalent.
+
+To keep the focus on practical comparison, I won’t dive into detailed syntax explanations. Instead, I’ll provide general descriptions of what each code block is doing, without going deep into the how.
+<hr>
+#### Selection and Filtering 
+**Select all rows which correspond to Delta airlines (DL)**
 ```r
-#######################
-###### Selection ######
-
-# select all rows for DL (Delta)
+# Base-R
 flightsDF[flightsDF$carrier == 'DL',]
+
+# Tidyverse
 flightsTB %>% filter(carrier == 'DL')
+
+# Data.table
 flightsDT[carrier == 'DL']
 ```
+**Select the column called "dest"**
 ```r
-# select a single column called dest
+# Base-R
 flightsDF[,'dest']
+
+# Tidyverse
 flightsTB %>% select(dest)
+
+# Data.table
 flightsDT[,.(dest)]
 ```
+**Select multiple columns by name (origin and dest)**
 ```r
-# select multiple columns by name
+# Base-R
 flightsDF[,c('origin', 'dest')]
+
+# Tidyverse
 flightsTB %>% select(origin, dest)
+
+# Data.table
 flightsDT[,.(origin, dest)]
 ```
+**Select multiple columns by their numeric positions**
 ```r
-# select multiple columns by column position (arrival and dest)
+# Base-R
 flightsDF[,c(13,14)]
+
+# Tidyverse
 flightsTB %>% select(c(13, 14))
+
+# Data.table
 flightsDT[,c(13, 14)]
 ```
-```r
-#############################
-##### Creation/Deletion #####
+<hr>
+#### Column Creation and Deletion
 
-# add a new column called "newCol"
+**Add a new column called "newCol", which is the combination of origin and dest**
+```r
+# Base-R
 flightsDF$newCol <- paste0(flightsDF$origin, ':', flightsDF$dest)
+
+# Tidyverse
 flightsTB <- flightsTB %>% mutate(newCol = paste0(origin, ':', dest))
+
+# Data.table
 flightsDT[,newCol := paste0(origin, ':', dest)]
 ```
+
+**Remove the new column created above**
 ```r
-# remove the created column called "newCall"
+# Base-R
 flightsDF$newCol <- NULL
+
+# Tidyverse
 flightsTB <- flightsTB %>% select(-c(newCol))
+
+# Data.table
 flightsDT[,newCol := NULL]
 ```
-
+<hr>
 ### Basic Data Cleaning
 
+**Replace NA values in the "air_time"" column with 0**
 ```r
-# replace missing values
+# Base-R
 flightsDF[is.na(flightsDF$air_time),'air_time'] <- 0
+
+# Tidyverse
 flightsTB <- flightsTB %>% mutate(air_time = if_else(is.na(air_time), 0, air_time))
+
+# Data.table
 flightsDT[is.na(air_time), air_time := 0]
 ```
+
+**Rename the "dest" column as "destination"**
 ```r
-# rename columns
+# Base-R
 names(flightsDF)[names(flightsDF) == 'dest'] <- 'destination'
+
+# Tidyverse
 flightsTB <- flightsTB %>% rename(destination = dest)
+
+# Data.table
 setnames(flightsDT, c('dest'), c('destination'))
 ```
+
+**Sort the object by the longest distance flown in descending order**
 ```r
-# sort by longest distance flown
+# Base-R
 flightsDF <- flightsDF[order(-flightsDF$distance),]
+
+# Tidyverse
 flightsTB <- flightsTB %>% arrange(-distance)
+
+# Data.table
 flightsDT <- flightsDT[order(-distance)]
 ```
+
+**Re-arrange columns so that the column "carrier" comes first**
 ```r
-# re-arrange columns
+# Base-R
 flightsDF <- flightsDF[,c('carrier', names(flightsDF)[names(flightsDF) != 'carrier'])]
+
+# Tidyverse
 flightsTB %>% relocate(carrier, .before=year)
+
+# Data.table
 setcolorder(flightsDT, 'carrier', before='year')
 ```
-
+<hr>
 ### Grouping and Aggregating
 
+**Determine the number of flights from each New York airport**
 ```r
-# determine the number of flights for each airport
+# Base-R
 aggregate(flightsDF$origin, by=list(flightsDF$origin), FUN=length) 
+
+# Tidyverse
 flightsTB %>% group_by(origin) %>% summarise(count=n())
+
+# Data.table
 flightsDT[,.N, by=.(origin)]
 ```
+
+**Determine the most frequent route flown**
 ```r
-# determine the most frequent route flown
+# Base-R
 aggregate(flightsDF[,c('origin', 'destination')], by=list(flightsDF$origin, flightsDF$destination), FUN=length) |> (\(df) df[order(-df$origin),])() |> (\(df) df[1,])()
+
+# Tidyverse
 flightsTB %>% group_by(origin, destination) %>% summarise(count=n()) %>% ungroup() %>% arrange(-count) %>% slice_head(n=1)
+
+# Data.table
 flightsDT[,.N,by=.(origin, destination)][order(-N)][1]
 ```
+
+**Determine the average air-time for the most frequent route for each carrier**
 ```r
-# determine the average air-time for the most frequent route for each carrier
+# Base-R
 aggregate(air_time~carrier,
           data = flightsDF[flightsDF$origin == 'JFK' & flightsDF$destination == 'LAX', ],
           FUN = function(x) c(mean = mean(x, na.rm = TRUE)))
+          
+# Tidyverse
 flightsTB %>% filter(origin == 'JFK' & destination == 'LAX') %>% group_by(carrier) %>% summarise(avg=mean(air_time))
+
+# Data.table
 flightsDT[origin == 'JFK' & destination == 'LAX', mean(air_time), by=.(carrier)]
 ```
+
+**Determine both the average and median air-time for the most frequent route for each carrier**
 ```r
-# determine both the average and median air-time for the most frequent route for each carrier
+# Base-R
 aggregate(air_time~carrier,
           data = flightsDF[flightsDF$origin == 'JFK' & flightsDF$destination == 'LAX', ],
           FUN = function(x) c(mean = mean(x, na.rm = TRUE), median = median(x, na.rm = TRUE)))
+
+# Tidyverse
 flightsTB %>% filter(origin == 'JFK' & destination == 'LAX') %>% group_by(carrier) %>% summarise(avg=mean(air_time), med=median(air_time))
+
+# Data.table
 flightsDT[origin == 'JFK' & destination == 'LAX', .(avg=mean(air_time), med=median(air_time)), by=.(carrier)]
 ```
-
+<hr>
 ### Reshaping
+In this section, we’ll identify the most accurate airline—measured by average departure delay—for each month. We’ll approach this in a slightly roundabout way to demonstrate how data is converted between wide and long formats across each paradigm. The steps for each approach are as follows:
+- Compute the average flight delay for each month and carrier using the "dep_delay" column
+- Convert the data into a "wide" format where each month in a column and each row is a carrier
+- Select only Q1 (Jan. - April) months and convert back to a "long format"
 
+<hr>
 ```r
-# base R
+# Base-R
 depatureDeviationDF <- aggregate(dep_delay~carrier + month,
                                  data=flightsDF,
                                  FUN=function(x) c(avgDelay = mean(x, na.rm = TRUE)))
@@ -245,10 +357,10 @@ depatureDeviationDF_long <- reshape(depatureDeviationDF_wide,
                                     times = names(depatureDeviationDF_wide)[2:5], 
                                     idvar = "carrier")
 depatureDeviationDF_long <- depatureDeviationDF_long[,c('carrier', 'month', 'avgDelay')]
-
 ```
+<hr>
 ```r
-# dplyr + tidyr
+# Tidyverse
 depatureDeviationTB <- flightsTB %>% group_by(month, carrier) %>% summarise(avgDelay=mean(dep_delay, na.rm=TRUE))
 departureDeviationTB_wide <- depatureDeviationTB %>% 
   select(carrier, month, avgDelay) %>%
@@ -261,16 +373,17 @@ departureDeviationTB_long <- departureDeviationTB_wide %>%
     values_to = "avgDelay"
   ) %>%
   select(carrier, month, avgDelay)
+  
 ```
+<hr>
 ```r
-# determine the most accurate airline based on departure delay for each month
+# Data.table
 departureDeviationDT <- flightsDT[,.(avgDelay=mean(dep_delay, na.rm=TRUE)),by=.(month, carrier)]
 departureDeviationDT_wide <- dcast(departureDeviationDT, carrier~month, value.var='avgDelay')
 departureDeviationDT_long <- melt(departureDeviationDT_wide, id.vars=c('carrier'), measure.vars=c(2:5), variable.name='month', value.name='avgDelay')
 ```
-
-
-## Session Info
+<hr>
+### Session Info
 This guide was develped on R version 4.4.1, please find specific package versions
 
 <div class="clearfix"></div>
@@ -281,4 +394,11 @@ This guide was develped on R version 4.4.1, please find specific package version
        alt="Gel bead-in-EMulsion" class="glow-frame">
   <figcaption>Output of sessionInfo()</figcaption>
 </figure>
+
+### Additional Resources
+- [Quick guide](https://www.listendata.com/2016/10/r-data-table.html) to `data.table` with more in-depth information
+- [tidyr cheat sheet](https://rstudio.github.io/cheatsheets/html/tidyr.html)
+- [dplyr cheat sheet](https://rstudio.github.io/cheatsheets/html/data-transformation.html)
+- [R Code](https://github.com/zlskidmore/zlskidmore.github.io/blob/main/assets/posts/Rosetta_Stone_of_Data_Munging_in_R/data_rosetta_stone.R) for this post
+
 
