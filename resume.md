@@ -39,12 +39,12 @@ Senior bioinformatics and quantitative scientist with 12+ years spanning Tier 1 
 </div>
 
 ###### 2023 - 2025 Highlights
-- Co-developed and submitted intellectual property for differentiating histological subtypes of lung cancer using cfDNA features [WO2024173277A2](https://patents.google.com/patent/WO2024173277A2/en?oq=WO2024173277A2)
-- Lead author and bioinformatic scientist for development and application of ctDNA monitoring on a prospective phase III clinical trial (CAIRO5) using fragmentomics PMID: [39433569](https://pubmed.ncbi.nlm.nih.gov/39433569/)
-- Trained and maintained a random forest model to predict ctDNA fraction from plasma
+- Co-developed and submitted intellectual property for differentiating histological subtypes of lung cancer via cfDNA features [WO2024173277A2](https://patents.google.com/patent/WO2024173277A2/en?oq=WO2024173277A2)
+- Lead author and bioinformatic lead for development and application of ctDNA monitoring on a prospective phase III clinical trial (CAIRO5) using fragmentomics PMID: [39433569](https://pubmed.ncbi.nlm.nih.gov/39433569/)
+- Maintained and iteratively improved a production level random forest model to predict ctDNA fraction from plasma
 - Engaged with drug development companies in the application and analysis of ctDNA monitoring across multiple cancer types
-- Contributed to more than 15+ translational science projects from inception through publication, resulting in numerous domestic and international conference presentations/abstracts and manuscripts (under review)
-- Contributed to the analysis and presentation of scientific data in support of multi-million dollar partnerships with pharmaceutical companies and academic collaborators
+- Executed 15+ translational science projects from inception through publication, resulting in numerous domestic and international conference presentations/abstracts and manuscripts
+- Delivered scientific analysis for multi-million dollar collaborations with pharmaceutical companies and academic partners
 
 <div class="container">
   <div class="d-flex justify-content-between mx-auto" style="width: 100%;">
@@ -215,6 +215,8 @@ Senior bioinformatics and quantitative scientist with 12+ years spanning Tier 1 
 - Perl
 - Jekyll/Static Site Building
 - HTML/Web Development
+- Markdown
+- Cancer Genomics Databases (TCGA, GTEx, cBioPortal, COSMIC, etc.)
 
 ###### Familiar
 

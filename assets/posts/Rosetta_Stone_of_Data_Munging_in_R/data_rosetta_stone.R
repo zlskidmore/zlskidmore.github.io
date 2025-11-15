@@ -10,16 +10,29 @@ library(tidyr) # part of tidyverse
 library(data.table)
 library(nycflights13) # data to manipulate
 
+#######################
+### Basic structure ###
+nrow(flights) # get number of rows
+ncol(flights) # gen number of columns
+dim(flights) # get dimensions of object
+
+#######################
+# Detailed Structure ##
+str(flights) # get structure of object
+summary(flights) # get summary statistics for object
+
+#######################
+#### View Object ######
+head(flights) # get first few rows
+tail(flights) # get last few rows
+view(flights) # view object manually 
+
 #############################
 ##### Format Conversions ####
 
 flightsDF <- as.data.frame(flights) # base R
 flightsTB <- as_tibble(flights) # dplyr
 flightsDT <- as.data.table(flights) # data.table
-
-
-
-
 
 ################################################################################
 ########################## Basic Data Manipulation #############################
