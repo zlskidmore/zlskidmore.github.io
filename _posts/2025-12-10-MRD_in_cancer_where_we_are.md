@@ -6,59 +6,139 @@ description: "MRD in cancer, where we are and current trends"
 tags: [MRD, liquid_biopsy]
 ---
 
-# Minimum Residual Disease, what is it and how do we approach it
+# Minimal Residual Disease: What It Is, and How We Approach It
+
+<br>
 
 ### What is minimal residual disease?
 
-Put simply, minimal residual disease (MRD) is disease, namely cancer, that has been treated and appears to be cleared, but still exists. Lets consider a patient who has small cell lung cancer (SCLC). These tumors are characterized by the presence of TP53 and RB1 mutations, in standard of care they are typically treated with a platinum based therapy, a form of chemotherapy which introduces double-strand breaks in DNA. Because the tumor cells divide faster, they are impacted more severely, and typically will respond to treatment, at least initially. However to truely cure cancer you need to eliminate all the cells, and this is the problem, doing so is extemely hard. There are a couple of reasons for this, I will briefly mention one, most cancers are not a homogenous collections of cells. They are dividing rapidly, and so evolving and diverging from their parent lineage rapidly as well. This is something well characterized and known as tumor clonality. This is an interesting topic in itself and perhaps a topic of a future post, however the point i'm making is that tumor clonality can lead to subclones of a tumor that can lead to treatment resistance. This is one of the reasons it is so important to catch cancer early, the heterogenous or diverse a tumor is the more difficult it is to treat succesfully. This was a bit of a long winded tangent to say that even if a cancer appears to be cleared through imaging, that does not mean it is gone, some of those tumor cells could remain and continue to grow. Going back to our case, that is commonly the case, these patients will often appear to have been treated succesfully, but molecularly those tumor cells still exist, and so eventually the cancer will return, often alarmingly fast, and poor outcomes will follow.
+Put simply, minimal residual disease (MRD) refers to cancer that appears to be gone after treatment, yet persists at levels too low to detect with standard clinical tools. Imaging may show a complete response, blood counts may normalize, but a small population of malignant cells can remain and eventually spark a relapse.
 
-Why are we developing MRD assays?
+To ground this in a real example, consider a patient with small cell lung cancer (SCLC). These tumors almost universally carry TP53 and RB1 mutations and are typically treated with a platinum-based chemotherapy. Platinum agents induce double-strand breaks, and because tumor cells divide rapidly, they generally take the brunt of the damage. Many patients show an initial response.
 
-Now that we have a basic understanding of what MRD is conceptually we must ask ourselves why do we care? The answer simply speaking, is that if we know the cancer is still around, we can extend treatment and even try different treatment approaches in the hopes of producing a lasting response. Remember the less opportunity a tumor has to evolve, the better the patient outcomes will generally be. With succesfull MRD assays we are talking about getting a jump on cancer weeks to months ahead of traditional imaging such as a ct-scan. Additionally molecular based assays are more accessible to patient populations, not everyone is within a convenient distance to a site with imaging equipment potentially delaying detection.
+But curing cancer requires eliminating every malignant cell — and that’s the hard part.
 
-Why ctDNA is an attractive target for MRD assays?
+Tumors are rarely uniform. They evolve rapidly, generating genetically distinct subclones with different levels of drug sensitivity. This phenomenon, tumor clonality, is one of the central reasons early detection matters. The more heterogeneous a tumor becomes, the more likely it is that at least one subclone can survive therapy.
 
-We've discussed what MRD is and why we should care, the next obvious question is how does it work? From what I am familiar with and aware of most MRD assays are based off of a liquid biopsy. A blood draw is taken, often in a streck or edta tube, and molecularly assessed. That is not to say other alternatives might not be viable, we will discuss a few in the next sections, however most rely on circulating tumor DNA (ctDNA). The primary reason for this is the necessary detection threshold to be usefull. We are talking about capturing extremely low signal in often noisy data. In a liquid biopsy this often means capturing a signal on the order of .1%, and an order of magnitude lower would be even better. A ctDNA liquid biopsy hits a trifecta, it is accessible, it has a relatively low cost, it is scalable, all while getting close to usefull limit of detection and limit of blank thresholds.
+So even when a cancer appears “cleared” on imaging, it may not be gone. A few surviving cells can continue dividing quietly until clinical relapse becomes inevitable. In SCLC this pattern is common: patients often look like they’ve responded well, yet molecularly the disease persists, and recurrence can happen with startling speed.
 
-Key MRD approaches, strengths and weaknesses
+That lingering, invisible population of cells — too small for a scan to detect but biologically active — is MRD.
 
-Tissue Informed Methodolgies
+<br>
 
-Many leading MRD approaches are tissue informed, which delves into the realm of personalized medicine a bit. The basic concept is that you have sequenced a piece of the tumor tissue itself, having that piece you then know which somatic variants characterize the tumor, which are founding variants (theoretically in all evolutionary divergences of the tumor), and as such you know exactly where in the genome you need to look for and MRD signal. Having this information you can then build a custom capture panel targeting those variants and sequence to great depth, on the order of 1,000-10,000X. Often this is done in conjunction with unique molecular identifiers (UMI's), that is to say a UMI is tagged on each molecule so that when a molecule is sequenced more than once a consensus sequence can be generated, effecitvely reducing the probability a sequenceing error will be counted as a somatic variant. This may seem like overkill at first glance, but remember, we are trying to find extremely low signal in what is often noisy data, anything that can boost signal or reduce noise makes for a better assay. The advantage in these approaches are a very high assay sensitvity, the problem as one might imagine, is that having knowledge of the tumor beforehand is at best more costly and requires time to analyze/build a custom panel. Perhaps more of weakness though is the fact that tumor tissue is required, this is not always possible and is at best requires an invasive biopsy beforehand.
+### Why are we developing MRD assays?
 
-Tumor Agnostic Methodolgies
+With a working definition of MRD, we arrive at the next question, why do we care? The short answer is that if we can detect cancer while it still exists only at a molecular level, we can intervene earlier and more effectively. Knowing that disease is still present allows us to either extend therapy, escalate treatment, or switch treatment modalities before the tumor has the opportunity to rebound and diversify.
 
-While i would consider tissue informed methodologies to be the current gold standard in terms of sensitivity, as discussed there are limitations with such approaches. Fortunately there are some creative approaches to MRD using ctDNA without the need for an apriori knowledge of the tumor tissue. Let's discuss a few of these now
+A central truth in oncology is that time favors the tumor. The longer cancer cells are allowed to persist, the more opportunity they have to evolve into treatment-resistant subclones. Catching a molecular relapse early, weeks to months before a CT scan can show anything, gives a meaningful head start to head off further clonal evolution.
 
-Variant Based MRD
+Beyond imrpoved treatment outcomes, a practical advantage also exists. Blood-based MRD assays are far more accessible than imaging. Not every patient lives near a center with radiology capabilities and a ct-scanner, delays in scheduling or geography can push imaging out by critical weeks. A blood draw is simple. It’s cheap.
 
-Just because we don't have apriori expectations of somatic mutations from a personalized panel doesn't mean we can't use variants, their use just becomes more challenging. Tumors can often be characterized by hotspot mutations based on their type. I briefly mentioned TP53 and RB1 mutations being characteristic of SCLC, likewise many colorectal cancers (CRC) have hotspot mutations in KRAS, NRAS, and BRAF genes. The distinction here is that we don't know exactly where to look for these variants, we simply have an aproximate idea. Furthermore because we don't know the ground truth we are more prone to detecting artifacts that are not truely somatic, especially at the low detection threshold we are discussing around MRD. I'll give an example, let's consider a CRC case which we have sequenced and detected low level variants in the kras gene. Most sequencing in the context is PCR based, in other words during library prep molecules are replicated in order to be able to sequence more material. This is done many times, however a PCR amplification is not 100% perfect, mistakes will happen and a base will be switched seemingly looking like a variant. UMI's can aid in accounting for this phenomenom, reducing the noise, in effect a UMI is tagged to each molecule before PCR, then unless the replication error happened in the first few PCR cycles, a consensus sequence can be reconstructed from the UMI's. False variants can also occur due to simple sequencing errors, sequencers are very good but not perfect, and given that we are talking millions of dna fragments, occasionally a sequencer might read a A when it's really a T. There is an approach to address this as well however known as duplex sequencing. DNA is double stranded, a true variant should exist on both the forward and reverse strands, in duplex sequencing the forward and reverse strands are paired and so we know that if a variant exists on one strand and not the other something is amiss. We've discussed two sources of technical artifacts, but biology is not so simple, we would be remiss if we did not at least mention CHIP variants (Clonal Hematopoiesis of Indeterminate Potential). As we age we aquire mutations, these occur at low levels, but are not necessarily related to the cancer at all. They originate in hematopoietic stem cells (HSC) in the blood, but because we are sequencing blood to detect ctDNA we pick them up as well. Fortunately there is a way to account for them, the buffy coat in a liquid biopsy is full of HSC's, if the buffy coat is sequenced as well the CHIP variants can largely be accounted for and black-listed in the MRD assay, albeit this is a seperate sequencing library and so there are time and cost commitments to address this. I will end our variant based MRD discussion with a note on phased variants. In all of these approaches we are trying to do two things, reduce noise or increase signal, it is as simple as that, there are just underlying costs associated. Examining phased variants, that is to say variants which are close enough to be sequenced together, and are on the same strand are in cis. The liklihood of a sequencing artifact occuring one after the other is low, so looking for phased variants is yet another way to boost signal.
+That combination, earlier detection, convenience, and wider accessibility, is why the field is investing so heavily in MRD technologies.
 
-Copy Number and LOH MRD
+<br>
 
-In the conext of MRD another place to look for signal outside of the traditional variants are aneuploidy based. Cancers can get messy, they may have a deletion of an entire chromosome arm in one region, massive focal amplifications in other areas. They may even have copy-neutral loss of heterozygosity (LOH) events where there was a deletion, however the remaining chromsome arm was then amplified bringing everything back to a diploid state. These types of events are argubably easier to detect, as overall signal is not concentrated at a single base-pair, but rather spread out across a more diverse region of the genome so there is less noise. However that signal is spread out and so it's sensitivity is generally not as high. As an example, ichorCNA is a publicly available tool for estimating ctDNA using tumor aneuploidy from low coverage whole genome sequencing (WGS). I will not go into as much detail here other than to say the signal/noise ratio is important in all methods, a source of technical variation here for example is GC bias which needs to be accounted for. The point I am making is that cancer signal does exist outside of purely somatic variants.
+### Why is ctDNA an attractive target for MRD assays?
 
-Fragmentome MRD
+We’ve discussed what MRD is and why it matters, so the next question is, how do we actually detect it? Most modern MRD assays rely on a liquid biopsy, a blood draw is collected in a Streck or EDTA tube and then analyzed molecularly. Other sample types exist in theory, and I’ll touch on them later, but ctDNA remains the backbone of almost every MRD assay in development today.
 
-I do want to touch on fragmentomics as well, as I would consider it, at current, the third main feature when talking about MRD in liquid biopsy. I will lead by saying fragment sizes in a liquid biopsy are not consistent between normal DNA and tumor derived DNA. Particularly tumors have a bias twoards shorter dna fragment sizes, and this is signal that is detectable in ctDNA. Additionally as part of the fragmentome umbrella, cancer derived fragments often have distinct end motifs due to the altered nuclease activity of DNASE1 for example. Finally I will touch on nucleosome depletion and nuclesome depleted regions. Looking at a ctDNA, and specifically at transcription factor binding sites (TFBS), transcription start sites (TSS), and the 1st exon/intron junction of genes, we can often observe drops in coverage. Why does this occur? The answer is that when DNA is would around the nucleosomes it is protected from degradation in the blood, however when a cancer unwound at a specific site for some reason, i.e. to express a gene, that DNA is no longer as protected. This appears as dips in coverage at specific sites because the DNA there, specific to the tumor, as been degrades so much that it is no longer sequenced or mapped. In effect this creates somewhat of an analog to RNA expression, and a unique fingerprint to detect. As with everything however there are tradeoffs to all approaches. Speaking specifically to fragmentomics WGS is required, as such the tradeoff is sequencing depth vs cost.
+The reason is sensitivity. MRD requires us to detect cancer at astonishingly low levels of signal. We’re often looking for tumor-derived DNA (ctDNA) fragments that represent 0.1% of the total cell-free DNA, even an order of magnitude below that is preferable. Achieving that level of detection isn’t just a technical challenge; it narrows the viability of the biological materials we can work with.
 
-Upcoming or Alternative Technologies
+ctDNA hits core checkmarks offering a rare combination of attributes:
 
-I want to briefly mention some alternative technologies and avenues of exploration. Detection of cancers in a MRD setting is not necessarily limited to ctDNA, though that is where the focus is right now. For example extracellular vesicles are released by cancer cells and can act as a biomarker for cancer as those EVs contain cancer specific DNA/RNA/proteins. They can be isolated through microfluidic devices, however at current such approaches are not scalable presenting challenges. Something else to mention, which I find fascinating, is to not look specifically for tumor signal, but rather look for something tumor adjacent. I'm referring to the immune system itself, even if the immune system cannot handle the cancer, it should still know it's there and be responsive to it. Therefore if we get to a point where we can predict t-cell receptor clonotypes for specific MHC/Neoantigen complexes we may be able to infer MRD from the TCR clonotype repetoire itself.
+- It’s accessible: a blood draw is easy to obtain compared to specialized imaging
+- It’s cost-effective: a blood draw can be processed and sequenced relatively quickly and easily
+- It’s biologically informative: ctDNA carries tumor-specific biomarkers that are detectable and measurable
+- It’s scalable: NGS sequencing pipelines can process thousands of samples in a lab each week
 
-Final Thoughts
+All of this while also approaching usefull limit of detection and limit of balnk thresholds to matter.
 
-At the end of the day, in the context of MRD, everything comes down to this:
+<br>
 
-1. How can we boost signal
-2. How can we reduce noise
+### Key MRD approaches, strengths and weaknesses
 
-It sounds simple in theory, however I hope i've left you with the impression that in practice it is far more complex. My beleif is that multi-omic assays are the next step, and will provide the most promissing results. Combining variants, with aneuploidy, structural variants, fragmentome based features, and other emerging technologies may bring assay sensitivity down enough to become mainstream, ultimately improving patient outomes. Indeed I think we may be on the cusp of this already.
+##### Tissue Informed Methodolgies
 
+Many of the leading MRD assays are tissue-informed, which pushes the field squarely into the realm of personalized medicine. The basic idea is fairly straightforward, you sequence a patient’s tumor tissue up front, identify the somatic mutations that define it, particularly the founding variants, and then use that information to inform where you look in the liquid biopsy.
 
+Once the tumor-specific variants are known, you can build a custom capture panel targeting specifically those sites and sequence the patient’s plasma to an extreme depth, often in the range of 1,000–10,000×. These assays typically incorporate unique molecular identifiers (UMIs), which tag each original DNA fragment before any PCR amplification occurs. When multiple reads originate from the same tagged fragment, you can then collapse them into a consensus sequence, dramatically reducing the chance that a random PCR error is classified as a true somatic variant.
 
+On a first pass this might seem like overkill, however MRD detection is fundamentally a needle-in-a-haystack problem. We’re looking for the faintest of signals in a background dominated by healthy cell-free DNA. Anything that reduces noise or boosts signal confidence helps.
 
+The strengths of tissue informed approaches are fairly intuitive:
+- High sensitivity: You’re only looking for variants you know are present in the tumor
+- High specificity: CHIP variants (more on these later) and other sources of background noise are largely filtered out
+- Structured targeting: Ultra-Deep sequencing is concentrated at the most informative loci rather than spread across the genome
 
+But as with any approach there are trade-offs. Critically, tissue informed MRD requires access to tumor tissue, something which might not always be available, especially in cancer types where biopsies are risky or yield very little material. Even when tumor tissue is available, sequencing, analysis, and panel design add time, cost and complexity. The extra logistical steps slow assay turnaround and make the approach less flexible than tissue agnostic alternatives.
 
+##### Tumor Agnostic Methodolgies
 
+While there is no question, tissue-informed approaches currently offer the best sensitivity, the requirement for tumor tissue is a real limitation and drawback due to the reasons discussed above. Because of this, several creative and innovative MRD strategies have emerged that rely purely on plasma, without any aprior knowledge of a tumors mutational profile.
 
+Let’s walk through a few of these.
+
+###### Variant Based MRD
+
+The absence of a personalized tumor panel doesn’t mean variants are off the list of viable biomarkers, it just makes the problem more difficult. Many cancers carry recurrent hotspot mutations. As I mentioned earlier, SCLC often carries TP53 and RB1 mutations; colorectal cancers (CRC) commonly harbor mutations in KRAS, NRAS, or BRAF. In a tumor-agnostic approach, we can look broadly for mutations like these rather than targeting a defined set of patient-specific personalized variants.
+
+The challenge is that without ground truth, a gold standard, we’re more prone to misclassifying technical artifacts as somatic mutaions, especially given the extremely low allele fractions involved in MRD. Lets consider a CRC case in which we detect a low-level KRAS mutation. Most sequencing workflows rely on PCR during library prep, and polymerases occasionally introduce errors, a mistaken base substitution that can look like a real somatic mutation. UMIs help here by tagging each original fragment before amplification. Unless an error happens in the very first PCR cycle, which can occur, UMI consensus logic will collapse the amplified reads back to a correct consensus sequence, dramatically reducing this type of issue.
+
+Sequencing errors from the mahcine are another source of noise. Despite the very high accuracy, a sequencer processing millions of DNA fragments, and will occasionally misread a base, calling an C a T for example. Duplex sequencing offers a solution to control for this, because true mutations exist on both the forward and reverse strands of the DNA, a mutation that appears on only one strand of a DNA fragment is suspect. Duplex isn’t cheap, but it is a clean way to suppress these types of technical artifacts.
+
+We must also consider the biology itself. We would be remiss not to mention CHIP variants (clonal hematopoiesis of indeterminate potential). As people age, hematopoietic stem cells will accumulate mutations and expand into small clonal populations. These mutations appear in plasma even though they have nothing to do with the tumor, often at similar levels to MRD detection thresholds. Fortunately these can be controlled for by sequencing the buffy coat (essentially a WBC control) alongside the plasma. In this manner most CHIP variants can be identified and excluded. This does come at the expense of a separate library prep and extra cost.
+
+Finally I’ll end this section with a quick note on phased variants. Across all these approaches the goal remains the same, either reduce noise or boost signal, ideally both. Phased variants, which are two or more mutations occurring close enough together to be captured on the same DNA fragment, are a particularly interesting way to do this. The probability of two independent sequencing or PCR errors occurring in the exact same molecule are.... shall we say improbable, so identifying phased variants provide an extra layer of confidence when calling a variant as tumor derived.
+
+###### Copy Number and LOH MRD
+
+In the context of MRD, another source of signal beyond simply point mutations is aneuploidy, broad gains, losses, and structural variations in the cancer genome. Tumors can be remarkably chaotic. One region may show the deletion of an entire chromosome arm, while another contains high-level focal amplifications. Some may even exhibit copy-neutral loss of heterozygosity (LOH) where a region is deleted on one chromosome, but the remaining allele is then duplicated, returning the locus to a diploid copy number while still losing heterozygosity.
+
+These events are, in some ways, easier to detect than single nucleotide variants. Instead of relying on a change at a single base, the signal is distributed across a much larger region of the genome. That broader footprint means fewer sequencing reads are needed to see the signal emerge, and the noise from individual basepair errors is far less relevant.
+
+The trade-off here is sensitivity. Because the signal is spread out, aneuploidy-based MRD generally cannot reach the same detection limits as variant-based approaches. A practical example is ichorCNA, a widely used tool that estimates ctDNA fraction using low-coverage whole-genome sequencing. It works very well for moderate tumor fractions, but given the need for whole genome sequencing (WGS), and as such a restricted sequencing depth, the 0.1% thresholds we care about for MRD are elusive.
+
+As with any MRD modality, the signal-to-noise ratio is everything. Copy-number inference brings its own technical artifacts, GC bias, mappability differences, etc. all need to be addressed before the biological signal becomes interpretable.
+The broader point to make is that tumor-derived signal exists in many forms. Somatic variants are powerful, but they aren’t the only lens through which MRD can be viable.
+
+###### Fragmentome MRD
+
+Fragmentomics is the third major feature set used in liquid biopsy based MRD, and worth some attention. One of the foundational observations is that fragment sizes differ between normal cell-free DNA and tumor-derived cfDNA. Tumor fragments tend to skew shorter, and this size shift creates a detectable biomarker in plamsa samples.
+
+Fragmentomics extends beyond fragment length however. Tumor derived DNA often carries distinct end-motif patterns, reflecting altered nuclease activity in cancer cells, DNASE1 being a common example. These biases create reproducible signatures that can help distinguish ctDNA from normal cfDNA.
+
+A further layer of interest comes from nucleosome positioning. If you look at coverage around transcription start sites (TSS), transcription factor binding sites (TFBS), or the first exon–intron junctions, you will often see characteristic dips in read depth. The logic is straightforward, DNA wrapped tightly around nucleosomes is physically protected from degradation in the bloodstream, while DNA that becomes unwound, for example, during active transcription, is more vulnerable and breaks down more readily. Tumor cells with abnormal chromatin states produce can distinctive patterns of nucleosome depletion, which show up as these dips in coverage at specific sites.
+
+This creates a kind of chromatin fingerprint, it's not quite gene expression in the traditional RNAseq sense, but an adjacent signal that tumors leave will leave behind.
+
+As always, there are trade-offs. Fragmentomics typically requires whole-genome sequencing, even if at shallow depth, which shifts the balance between sensitivity and cost. You gain broad structural information but sacrifice the ultra-deep coverage achievable with targeted variant assays.
+
+Still, this is another orthogonal signal class, fragmentomics has real value. It captures tumor biology beyond that of variants alone cannot, and as such is worth mentioning in our MRD discussion.
+
+<br>
+
+### Upcoming or Alternative Technologies
+
+I want to briefly mention some alternative technologies and avenues of exploration. MRD detection isn’t limited to ctDNA, even though that’s where most of the focus sits today. As an example, cancer cells shed extracellular vesicles (EVs) which contain tumor-derived DNA, RNA, and proteins. These vesicles can be isolated with microfluidic systems and, in theory, provide a source of tumor specific biomarkers. The challenge here is scalability, current EV platforms are elegant but currently lack the throughput needed for widespread adoption.
+
+Another direction I find particularly interesting is the idea of looking not for the tumor itself, but for tumor-adjacent signal. I am speaking of course about the immune system, even if the immune system can’t eradicate the cancer, it should still see and responds to it. If we reach a point where we can reliably map T-cell receptor (TCR) clonotypes to specific neoantigens presented on patient MHC molecules, then shifts in the TCR repertoire could, in principle, serve as an indirect MRD readout. Instead of tracking the tumor’s signal directly, we could track the immune system’s memory of it.
+
+<br>
+
+### Final Thoughts
+
+At the end of the day, MRD detection boils down to two questions:
+
+- How do we boost signal?
+- How do we reduce noise?
+
+On paper, that sounds almost trivial. In practice, as I hope this overview has made clear, it’s far more complex. Every modality:
+
+- variants
+- copy number
+- fragmentomics
+- other experimental avenues
+
+runs into its own set of biological and technical limitations.
+
+My view is that multi-omic MRD assays are the next logical step. No single signal class is perfect, but each brings something complementary. Variants offer specificity, aneuploidy and structural features add robustness, fragmentomics broadens sensitivity, and emerging technologies may fill in remaining gaps. When combined, these layers can push detection limits low enough to make MRD monitoring mainstream and genuinely transformative for patient care. Indeed I think we may be on the cusp of this already.
