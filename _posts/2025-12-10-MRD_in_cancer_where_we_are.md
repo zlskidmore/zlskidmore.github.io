@@ -8,7 +8,7 @@ tags: [MRD, liquid_biopsy]
 
 # Minimal Residual Disease: What It Is, and How We Approach It
 
-<br>
+<hr>
 
 ### What is minimal residual disease?
 
@@ -24,7 +24,7 @@ So even when a cancer appears “cleared” on imaging, it may not be gone. A fe
 
 That lingering, invisible population of cells — too small for a scan to detect but biologically active — is MRD.
 
-<br>
+<hr>
 
 ### Why are we developing MRD assays?
 
@@ -36,7 +36,7 @@ Beyond imrpoved treatment outcomes, a practical advantage also exists. Blood-bas
 
 That combination, earlier detection, convenience, and wider accessibility, is why the field is investing so heavily in MRD technologies.
 
-<br>
+<hr>
 
 ### Why is ctDNA an attractive target for MRD assays?
 
@@ -53,7 +53,7 @@ ctDNA hits core checkmarks offering a rare combination of attributes:
 
 All of this while also approaching usefull limit of detection and limit of balnk thresholds to matter.
 
-<br>
+<hr>
 
 ### Key MRD approaches, strengths and weaknesses
 
@@ -115,7 +115,7 @@ As always, there are trade-offs. Fragmentomics typically requires whole-genome s
 
 Still, this is another orthogonal signal class, fragmentomics has real value. It captures tumor biology beyond that of variants alone cannot, and as such is worth mentioning in our MRD discussion.
 
-<br>
+<hr>
 
 ### Upcoming or Alternative Technologies
 
@@ -123,7 +123,7 @@ I want to briefly mention some alternative technologies and avenues of explorati
 
 Another direction I find particularly interesting is the idea of looking not for the tumor itself, but for tumor-adjacent signal. I am speaking of course about the immune system, even if the immune system can’t eradicate the cancer, it should still see and responds to it. If we reach a point where we can reliably map T-cell receptor (TCR) clonotypes to specific neoantigens presented on patient MHC molecules, then shifts in the TCR repertoire could, in principle, serve as an indirect MRD readout. Instead of tracking the tumor’s signal directly, we could track the immune system’s memory of it.
 
-<br>
+<hr>
 
 ### Final Thoughts
 
