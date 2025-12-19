@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Mimima Residual Disease In Cancer"
+title:  "Mimimal Residual Disease In Cancer"
 date:   2025-12-10 10:13:50 -0500
 description: "MRD in cancer, where we are and current trends"
 tags: [MRD, liquid_biopsy]
@@ -51,7 +51,7 @@ ctDNA hits core checkmarks offering a rare combination of attributes:
 - It’s biologically informative: ctDNA carries tumor-specific biomarkers that are detectable and measurable
 - It’s scalable: NGS sequencing pipelines can process thousands of samples in a lab each week
 
-All of this while also approaching usefull limit of detection and limit of balnk thresholds to matter.
+All of this while also approaching useful limit of detection and limit of blank thresholds to matter.
 
 <hr>
 
@@ -82,9 +82,9 @@ Let’s walk through a few of these.
 
 The absence of a personalized tumor panel doesn’t mean variants are off the list of viable biomarkers, it just makes the problem more difficult. Many cancers carry recurrent hotspot mutations. As I mentioned earlier, SCLC often carries TP53 and RB1 mutations; colorectal cancers (CRC) commonly harbor mutations in KRAS, NRAS, or BRAF. In a tumor-agnostic approach, we can look broadly for mutations like these rather than targeting a defined set of patient-specific personalized variants.
 
-The challenge is that without ground truth, a gold standard, we’re more prone to misclassifying technical artifacts as somatic mutaions, especially given the extremely low allele fractions involved in MRD. Lets consider a CRC case in which we detect a low-level KRAS mutation. Most sequencing workflows rely on PCR during library prep, and polymerases occasionally introduce errors, a mistaken base substitution that can look like a real somatic mutation. UMIs help here by tagging each original fragment before amplification. Unless an error happens in the very first PCR cycle, which can occur, UMI consensus logic will collapse the amplified reads back to a correct consensus sequence, dramatically reducing this type of issue.
+The challenge is that without ground truth, a gold standard, we’re more prone to misclassifying technical artifacts as somatic mutations, especially given the extremely low allele fractions involved in MRD. Lets consider a CRC case in which we detect a low-level KRAS mutation. Most sequencing workflows rely on PCR during library prep, and polymerases occasionally introduce errors, a mistaken base substitution that can look like a real somatic mutation. UMIs help here by tagging each original fragment before amplification. Unless an error happens in the very first PCR cycle, which can occur, UMI consensus logic will collapse the amplified reads back to a correct consensus sequence, dramatically reducing this type of issue.
 
-Sequencing errors from the mahcine are another source of noise. Despite the very high accuracy, a sequencer processing millions of DNA fragments, and will occasionally misread a base, calling an C a T for example. Duplex sequencing offers a solution to control for this, because true mutations exist on both the forward and reverse strands of the DNA, a mutation that appears on only one strand of a DNA fragment is suspect. Duplex isn’t cheap, but it is a clean way to suppress these types of technical artifacts.
+Sequencing errors from the machine are another source of noise. Despite the very high accuracy, a sequencer processing millions of DNA fragments, and will occasionally misread a base, calling an C a T for example. Duplex sequencing offers a solution to control for this, because true mutations exist on both the forward and reverse strands of the DNA, a mutation that appears on only one strand of a DNA fragment is suspect. Duplex isn’t cheap, but it is a clean way to suppress these types of technical artifacts.
 
 We must also consider the biology itself. We would be remiss not to mention CHIP variants (clonal hematopoiesis of indeterminate potential). As people age, hematopoietic stem cells will accumulate mutations and expand into small clonal populations. These mutations appear in plasma even though they have nothing to do with the tumor, often at similar levels to MRD detection thresholds. Fortunately these can be controlled for by sequencing the buffy coat (essentially a WBC control) alongside the plasma. In this manner most CHIP variants can be identified and excluded. This does come at the expense of a separate library prep and extra cost.
 
@@ -103,7 +103,7 @@ The broader point to make is that tumor-derived signal exists in many forms. Som
 
 ###### Fragmentome MRD
 
-Fragmentomics is the third major feature set used in liquid biopsy based MRD, and worth some attention. One of the foundational observations is that fragment sizes differ between normal cell-free DNA and tumor-derived cfDNA. Tumor fragments tend to skew shorter, and this size shift creates a detectable biomarker in plamsa samples.
+Fragmentomics is the third major feature set used in liquid biopsy based MRD, and worth some attention. One of the foundational observations is that fragment sizes differ between normal cell-free DNA and tumor-derived cfDNA. Tumor fragments tend to skew shorter, and this size shift creates a detectable biomarker in plasma samples.
 
 Fragmentomics extends beyond fragment length however. Tumor derived DNA often carries distinct end-motif patterns, reflecting altered nuclease activity in cancer cells, DNASE1 being a common example. These biases create reproducible signatures that can help distinguish ctDNA from normal cfDNA.
 
