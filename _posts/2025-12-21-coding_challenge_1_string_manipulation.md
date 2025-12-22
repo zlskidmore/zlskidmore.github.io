@@ -98,7 +98,77 @@ print(f"Indices: {indexes} contain incorrect bases: {bad_bases}")
 <hr>
 
 ### Challenge 2
-reverse complement
+
+DNA is by convention written 5' - 3', a somewhat intuitive exercise is to display the opposite strand of a dna fragment, in other words reverse complement the dna strand. Make sure everything is upper case.
+
+#### R
+
+###### Input
+
+```R
+# Setup
+dnaSeq <- "AACggtCGA"
+```
+
+###### Output
+
+```R
+"TCGACCGTT"
+```
+
+###### Solution
+
+<details markdown="1">
+  <summary>Show</summary>
+
+```R
+# convert to uppercase
+dnaSeq_rc <- toupper(dnaSeq)
+
+# use switch statement to change bases
+switchBase <- function(base) {
+  
+  base <- as.character(base)
+  compBase <- switch(base, "A"="T", "T"="A", "C"="G", "G"="C")
+  return(compBase)
+}
+seq_vec <- unlist(strsplit(dnaSeq_rc, ""))
+seq_vec <- sapply(seq_vec, switchBase)
+
+# reverse sequence
+dnaSeq_rc <- paste0(rev(seq_vec), sep="", collapse="")
+dnaSeq_rc
+```
+</details>
+
+<br>
+
+#### Python
+
+###### Input
+
+```python
+# Setup
+dnaSeq = "AACggtCGA"
+```
+
+###### Output
+
+```python
+"TCGACCGTT"
+```
+
+###### Solution
+
+<details markdown="1">
+  <summary>Show</summary>
+
+```python
+
+```
+</details>
+
+<hr>
 
 ### Challenge 3
 GC content
