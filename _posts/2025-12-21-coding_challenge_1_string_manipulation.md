@@ -24,19 +24,19 @@ Have Fun!
 
 DNA base sequences consist of A, C, G, and T. Find the wrong bases and print out their positions!
 
-#### R
-
-###### Input
-
-```R
-# Setup
-dnaSeq <- "ACGTCCTGHGCACZTTA"
-```
-
 ###### Output
 
 ```R
 "Indices: 9, 14 contain incorrect bases: H, Z"
+```
+
+#### R
+
+###### Setup
+
+```R
+# Setup
+dnaSeq <- "ACGTCCTGHGCACZTTA"
 ```
 
 ###### Solution
@@ -64,12 +64,6 @@ print(paste0("1-Based Indices: ", toString(badBase_idx), " contain incorrect bas
 ```python
 # Setup
 dnaSeq = "ACGTCCTGHGCACZTTA"
-```
-
-###### Output
-
-```python
-"Indices: [8, 13] contain incorrect bases: ['H', 'Z']"
 ```
 
 ###### Solution
@@ -101,6 +95,12 @@ print(f"Indices: {indexes} contain incorrect bases: {bad_bases}")
 
 DNA is by convention written 5' - 3', a somewhat intuitive exercise is to display the opposite strand of a dna fragment, in other words reverse complement the dna strand. Make sure everything is upper case.
 
+###### Output
+
+```R
+"TCGACCGTT"
+```
+
 #### R
 
 ###### Input
@@ -109,13 +109,6 @@ DNA is by convention written 5' - 3', a somewhat intuitive exercise is to displa
 # Setup
 dnaSeq <- "AACggtCGA"
 ```
-
-###### Output
-
-```R
-"TCGACCGTT"
-```
-
 ###### Solution
 
 <details markdown="1">
@@ -152,12 +145,6 @@ dnaSeq_rc
 dnaSeq = "AACggtCGA"
 ```
 
-###### Output
-
-```python
-"TCGACCGTT"
-```
-
 ###### Solution
 
 <details markdown="1">
@@ -171,7 +158,67 @@ dnaSeq = "AACggtCGA"
 <hr>
 
 ### Challenge 3
-GC content
+
+The ratio of G and C to A and T in DNA sequences can introduce bias, calculate the GC content of a string of bases as a percentage.
+
+###### Output
+
+```R
+"TCGACCGTT"
+```
+
+#### R
+
+###### Input
+
+```R
+# Setup
+dnaSeq <- "acgcgtcgacgttttgccataatatcg"
+```
+###### Solution
+
+<details markdown="1">
+  <summary>Show</summary>
+
+```R
+# load lib
+library(data.table)
+
+# split up into a character vector of bases
+dnaSeq_vec <- unlist(strsplit(dnaSeq, ""))
+
+# convert to a data.table
+dnaSeq_dt <- as.data.table(dnaSeq_vec)
+setnames(dnaSeq_dt, "bases")
+
+# count the overal base counts and calculate GC content
+dnaSeq_counts <- dnaSeq_dt[,.N,by=.(bases)]
+answer <- sum(dnaSeq_counts[bases %in% c('g', 'c')]$N)/sum(dnaSeq_counts$N) * 100
+```
+</details>
+
+<br>
+
+#### Python
+
+###### Input
+
+```python
+# Setup
+dnaSeq = "acgcgtcgacgttttgccataatatcg"
+```
+
+###### Solution
+
+<details markdown="1">
+  <summary>Show</summary>
+
+```python
+
+```
+</details>
+
+<hr>
 
 ### Challenge 4
 find all k-mers
