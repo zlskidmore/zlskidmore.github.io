@@ -164,7 +164,7 @@ The ratio of G and C to A and T in DNA sequences can introduce bias, calculate t
 ###### Output
 
 ```R
-"TCGACCGTT"
+48.14815
 ```
 
 #### R
