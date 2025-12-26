@@ -14,7 +14,7 @@ Each challenge is intentionally small: just enough to keep your skills sharp wit
 
 For every prompt, I'll provide clearly defined input and a target output. Sometimes you may read data from a file; other times you’ll generate it on the fly. Either way, the idea is the same: run the setup code, then try to reproduce the expected result.
 
-Solutions in both R and Python follow each challenge. They’re not the only way to solve the problem, just clean, reproducible examples to compare your own work against.
+Solutions in both R and Python follow each challenge. They’re not the only way to solve the problem, just clean, reproducible examples to compare your own work against. They are in fact the solutions I came up with on the fly, so you might notice a bias twoards using data.table in R for example :)
 
 Have Fun!
 
@@ -221,10 +221,141 @@ dnaSeq = "acgcgtcgacgttttgccataatatcg"
 <hr>
 
 ### Challenge 4
+
+Occasionally you may be tasked with finding all possible DNA sequences for a specific k-mer length, try that here, for a kmer of length 6 (i.e. 6 bases in length), find all possible DNA sequence combinations.
 find all k-mers
 
+###### Output
+
+```R
+4096
+```
+
+#### R
+
+###### Input
+
+```R
+# setup
+possibleBases <- c("A","C","G","T")
+k <- 6
+```
+###### Solution
+
+<details markdown="1">
+  <summary>Show</summary>
+
+```R
+# we can use expand.grid, which will generate all possible combinations for a list of vectors
+# we create a list here using just a simply lambda function
+a <- function(x) {
+  return(possibleBases)
+}
+basesList <- lapply(1:k, a)
+
+# calling expand.grid with the list produces all combination
+grid <- expand.grid(basesList, stringsAsFactors = FALSE)
+
+# anonymous function to collapse columns for each row
+a <- function(x){
+  paste0(x, sep="", collapse="")
+}
+kmer_list <- apply(grid, 1, a)
+length(kmer_list)
+```
+</details>
+
+<br>
+
+#### Python
+
+###### Input
+
+```python
+# setup
+possibleBases <- ['A', 'C', 'G', 'T']
+k = 6
+```
+
+###### Solution
+
+<details markdown="1">
+  <summary>Show</summary>
+
+```python
+
+```
+</details>
+
+<hr>
+
 ### Challenge 5
-count base frequencies
+
+From a DNA string, count the proportion of each base within the sequence, don't worry about printing the exact output, just get the answer for a, c, g, and t
+
+###### Output
+
+```R
+    bases    proportions
+1:      a      0.2222222
+2:      c      0.2592593
+3:      g      0.2222222
+4:      t      0.2962963
+```
+
+#### R
+
+###### Input
+
+```R
+# setup
+dnaSeq <- "acgcgtcgacgttttgccataatatcg"
+```
+###### Solution
+
+<details markdown="1">
+  <summary>Show</summary>
+
+```R
+# load lib
+library(data.table)
+
+# split the string
+dnaVec <- unlist(strsplit(dnaSeq, ""))
+
+# convert to a data.table
+dnaDT <- as.data.table(dnaVec)
+setnames(dnaDT, 'bases')
+
+# construct counts and proportions
+dnaCountDT <- dnaDT[,.N, by=.(bases)]
+dnaCountDT[,baseProportion := N/sum(N)]
+```
+</details>
+
+<br>
+
+#### Python
+
+###### Input
+
+```python
+# Setup
+dnaSeq = "acgcgtcgacgttttgccataatatcg"
+```
+
+###### Solution
+
+<details markdown="1">
+  <summary>Show</summary>
+
+```python
+
+```
+</details>
+
+<hr>
+
 
 ### Challenge 6
 codon grouping
