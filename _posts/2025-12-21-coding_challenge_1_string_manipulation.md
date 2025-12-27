@@ -20,9 +20,11 @@ Have Fun!
 
 <hr>
 
-### Challenge 1
+### Challenge 1 - Validate DNA Sequence
 
-DNA base sequences consist of A, C, G, and T. Find the wrong bases and print out their positions!
+DNA sequences should consist only of the four canonical bases: A, C, G, and T. In practice, errors or data corruption can introduce invalid characters.
+
+Given a DNA string, identify any invalid bases and report their 1-based positions along with the incorrect characters.
 
 ###### Output
 
@@ -91,9 +93,11 @@ print(f"Indices: {indexes} contain incorrect bases: {bad_bases}")
 
 <hr>
 
-### Challenge 2
+### Challenge 2 - Reverse Complement a DNA Sequence
 
-DNA is by convention written 5' - 3', a somewhat intuitive exercise is to display the opposite strand of a dna fragment, in other words reverse complement the dna strand. Make sure everything is upper case.
+DNA is conventionally written in the 5′→3′ direction, but many analyses require working with the opposite strand.
+
+Given a DNA sequence, compute its reverse complement, ensuring the output is returned in uppercase.
 
 ###### Output
 
@@ -157,9 +161,11 @@ dnaSeq = "AACggtCGA"
 
 <hr>
 
-### Challenge 3
+### Challenge 3 - Calculate GC Content
 
-The ratio of G and C to A and T in DNA sequences can introduce bias, calculate the GC content of a string of bases as a percentage.
+The relative abundance of G and C bases can have a real biological influence due to 3 strong hydrogen bond, this makes high GC rich regions more stable.
+
+Given a DNA string, calculate the GC content as a percentage of the total sequence length.
 
 ###### Output
 
@@ -220,10 +226,11 @@ dnaSeq = "acgcgtcgacgttttgccataatatcg"
 
 <hr>
 
-### Challenge 4
+### Challenge 4 - Generate All Possible k-mers
 
-Occasionally you may be tasked with finding all possible DNA sequences for a specific k-mer length, try that here, for a kmer of length 6 (i.e. 6 bases in length), find all possible DNA sequence combinations.
-find all k-mers
+k-mers, short sequences of length k, are a core concept in genomics, appearing in alignment, assembly, and indexing algorithms.
+
+For a given value of k, generate all possible DNA k-mers composed of A, C, G, and T, and report the total number of unique combinations.
 
 ###### Output
 
@@ -289,9 +296,11 @@ k = 6
 
 <hr>
 
-### Challenge 5
+### Challenge 5 - Base Composition
 
-From a DNA string, count the proportion of each base within the sequence, don't worry about printing the exact output, just get the answer for a, c, g, and t
+Understanding the relative composition of nucleotide bases is a common first step in exploratory sequence analysis.
+
+Given a DNA string, calculate the proportion of each base (A, C, G, T) within the sequence.
 
 ###### Output
 
@@ -357,9 +366,11 @@ dnaSeq = "acgcgtcgacgttttgccataatatcg"
 <hr>
 
 
-### Challenge 6
+### Challenge 6 - Open Reading Frames
 
-Translation of DNA begins at methionine amino acid encoded in DNA by the letters ATG, find the ATG codon (groups of 3 DNA bases) and identify the remaining codons up to the stop site (TAA, TAG, or TGA).
+Protein-coding regions begin at a start codon (ATG) and terminate at the first encountered stop codon (TAA, TAG, or TGA).
+
+Given a DNA sequence, locate the first ATG codon and split the sequence into codons (groups of three bases) from that point until the first stop codon is reached.
 
 ###### Output
 
@@ -426,9 +437,11 @@ dna_Seq_codons_DT$codon
 
 <hr>
 
-### Challenge 7
+### Challenge 7 - Finly poly-a tracts
 
-Given a DNA sequence (5′→3′), find the lengths and 1-based start/end positions of all poly-A runs where there are ≥3 consecutive A’s. Runs are maximal (i.e., extend as far as possible). Ignore lowercase vs uppercase.
+Homopolymer runs, such as poly-A tracts, are common features of biological sequence data and can represent true biological signals (e.g., poly-A tails) or technical artifacts.
+
+Given a DNA sequence written 5′→3′, identify all poly-A runs consisting of three or more consecutive A’s. For each run, report the 1-based start position, end position, and run length. Runs should be maximal, meaning each run should extend as far as possible. Ignore lowercase versus uppercase characters.
 
 ###### Output
 
@@ -488,9 +501,11 @@ poly_a_pos[,sequence := str_dup("A", (end-start) + 1)]
 
 <hr>
 
-### Challenge 8
+### Challenge 8 - GC Content in a Sliding Window
 
-In this challenge we will examine the GC content of a string of DNA across a rolling window, given the DNA string below, compute the GC content for a 10bp sliding window. The window should be right aligned so the first complete window to calculate on would be "ACTTTCTTAT" then "CTTTCTTATG" etc.
+GC content often varies across a sequence, and examining it locally can reveal regions of low complexity or unusual composition.
+
+Given a DNA string, compute the GC content across a 10-base sliding window. The window should be right-aligned, such that the first window evaluated corresponds to bases 1–10, followed by bases 2–11, and so on.
 
 ###### Output
 
@@ -554,19 +569,18 @@ windowedGC[!is.na(windowedGC)]
 
 <hr>
 
-### Challenge 9
+### Challenge 9 - Base Pair Mismatch
 
-Commonly, base mismatches occur in bioinformatics data. These may represent true variants or technical artifacts. Below are two DNA strings, each written 5′→3′. To compare them, reverse one strand to align it antiparallel to the other, then compare bases using standard complement rules and count the number of mismatches.
+Base mismatches between complementary DNA strands may represent true variants or technical artifacts.
+
+Given two DNA strings, each written 5′→3′, reverse one strand to align it antiparallel to the other. Then compare bases using standard complement rules (A - T, G - C) and count the number of mismatches.
+
 For example:
 
 5'-ATGCC-3'
 3'-TACGT-5'
 
 Contains one artifact at the very end on the right side, either the C or T is wrong.
-
-Remember:
-G matches C
-A matches T
 
 ###### Output
 
@@ -628,9 +642,11 @@ sum(dnaSeq_DT$badAlign)
 
 <hr>
 
-### Challenge 10
+### Challenge 10 - Locate a Motif
 
-Often in biology we are interested in motif's, below I supply a DNA sequence, find the 1-base start and stop position of the TATA box for the sequence in the setup
+Short sequence motifs play important roles in gene regulation and genome annotation.
+
+Given a DNA sequence and a target motif, we'll uses a TATA-box motif, identify the 1-based start and end positions of the motif within the sequence.
 
 ###### Output
 
