@@ -358,14 +358,205 @@ dnaSeq = "acgcgtcgacgttttgccataatatcg"
 
 
 ### Challenge 6
-codon grouping
+
+Translation of DNA begins at methionine amino acid encoded in DNA by the letters ATG, find the ATG codon (groups of 3 DNA bases) and identify the remaining codons up to the stop site (TAA, TAG, or TGA).
+
+###### Output
+
+```R
+"ATG" "TTT" "AGT" "TTC" "AAT" "ATT" "GTT" "TTC" "TTT" "TCT" "CTG" "GCT" "AAT" "AAA" "GGC" "CTT" "ATT" "CAT" "TTC" "TAA"
+```
+
+#### R
+
+###### Input
+
+```R
+# setup
+dnaSeq <- "ACTTTCTTATGTTTAGTTTCAATATTGTTTTCTTTTCTCTGGCTAATAAAGGCCTTATTCATTTCTAATTATGAAA"
+```
+###### Solution
+
+<details markdown="1">
+  <summary>Show</summary>
+
+```R
+# load lib
+library(stringr)
+library(data.table)
+
+# find the start and strip out whats before, use a regex and non-greedy quantifier with a capture group,
+# this represents the start of the ORF
+dnaSeq_orf <- gsub("^.*?(ATG.*)", "\\1", dnaSeq)
+
+# split into codons using str_sub
+start <- seq(1, nchar(dnaSeq_orf), by=3)
+stop  <- pmin(start + 2, nchar(dnaSeq_orf))
+dna_Seq_codons <- str_sub(dnaSeq_orf, start=start, end=stop)
+
+# annotate stop codons
+dna_Seq_codons_DT <- data.table(codon=dna_Seq_codons)
+dna_Seq_codons_DT[,StopCodon := grepl("TAA|TAG|TGA", dna_Seq_codons)]
+
+# subset to pull up until the first stop encounter, then format back to a vector
+dna_Seq_codons_DT <- dna_Seq_codons_DT[1:min(which(dna_Seq_codons_DT$StopCodon == TRUE))]
+dna_Seq_codons_DT$codon
+```
+</details>
+
+<br>
+
+#### Python
+
+###### Input
+
+```python
+
+```
+
+###### Solution
+
+<details markdown="1">
+  <summary>Show</summary>
+
+```python
+
+```
+</details>
+
+<hr>
 
 ### Challenge 8
 Compute GC content in 10bp sliding windows
 
+###### Output
+
+```R
+```
+
+#### R
+
+###### Input
+
+```R
+```
+###### Solution
+
+<details markdown="1">
+  <summary>Show</summary>
+
+```R
+```
+</details>
+
+<br>
+
+#### Python
+
+###### Input
+
+```python
+
+```
+
+###### Solution
+
+<details markdown="1">
+  <summary>Show</summary>
+
+```python
+
+```
+</details>
+
+<hr>
+
 ### Challenge 9
 count base mismatches between forward and reverse dna strands of the same molecule
+
+###### Output
+
+```R
+```
+
+#### R
+
+###### Input
+
+```R
+```
+###### Solution
+
+<details markdown="1">
+  <summary>Show</summary>
+
+```R
+```
+</details>
+
+<br>
+
+#### Python
+
+###### Input
+
+```python
+
+```
+
+###### Solution
+
+<details markdown="1">
+  <summary>Show</summary>
+
+```python
+
+```
+</details>
+
+<hr>
 
 ### Challenge 10
 Find the motif
 
+###### Output
+
+```R
+```
+
+#### R
+
+###### Input
+
+```R
+```
+###### Solution
+
+<details markdown="1">
+  <summary>Show</summary>
+
+```R
+```
+</details>
+
+<br>
+
+#### Python
+
+###### Input
+
+```python
+
+```
+
+###### Solution
+
+<details markdown="1">
+  <summary>Show</summary>
+
+```python
+
+```
+</details>
+
+<hr>
