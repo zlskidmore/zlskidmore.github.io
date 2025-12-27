@@ -155,7 +155,10 @@ dnaSeq = "AACggtCGA"
   <summary>Show</summary>
 
 ```python
+comp = str.maketrans({"A": "T", "T": "A", "C": "G", "G": "C"})
 
+rev_comp = dnaSeq.upper().translate(comp)[::-1]
+print(rev_comp)
 ```
 </details>
 
@@ -220,7 +223,9 @@ dnaSeq = "acgcgtcgacgttttgccataatatcg"
   <summary>Show</summary>
 
 ```python
-
+seq = dnaSeq.upper()
+gc_pct = 100 * sum(1 for b in seq if b in ("G", "C")) / len(seq)
+print(gc_pct)
 ```
 </details>
 
@@ -290,7 +295,10 @@ k = 6
   <summary>Show</summary>
 
 ```python
+from itertools import product
 
+kmers = ["".join(p) for p in product(possibleBases, repeat=k)]
+print(len(kmers))
 ```
 </details>
 
@@ -359,7 +367,12 @@ dnaSeq = "acgcgtcgacgttttgccataatatcg"
   <summary>Show</summary>
 
 ```python
+seq = dnaSeq.lower()
+counts = pd.Series(list(seq)).value_counts()
+props = (counts / counts.sum()).reindex(["a", "c", "g", "t"]).fillna(0)
 
+out = pd.DataFrame({"bases": props.index, "proportions": props.values})
+print(out)
 ```
 </details>
 
@@ -422,7 +435,8 @@ dna_Seq_codons_DT$codon
 ###### Input
 
 ```python
-
+# setup
+dnaSeq = "ACTTTCTTATGTTTAGTTTCAATATTGTTTTCTTTTCTCTGGCTAATAAAGGCCTTATTCATTTCTAATTATGAAA"
 ```
 
 ###### Solution
@@ -431,7 +445,21 @@ dna_Seq_codons_DT$codon
   <summary>Show</summary>
 
 ```python
+import re
 
+m = re.search("ATG", dnaSeq)
+if not m:
+    codons = []
+else:
+    orf = seq[m.start():]
+    codons = [orf[i:i+3] for i in range(0, len(orf), 3)]
+
+    stops = {"TAA", "TAG", "TGA"}
+    stop_i = next((i for i, c in enumerate(codons) if c in stops), None)
+    if stop_i is not None:
+        codons = codons[:stop_i + 1]
+
+print(codons)
 ```
 </details>
 
@@ -486,7 +514,8 @@ poly_a_pos[,sequence := str_dup("A", (end-start) + 1)]
 ###### Input
 
 ```python
-
+# setup
+dnaSeq = "TCGTGCCTGACGCAATGCAAAAAAGTCGCAAAAAAAAAAATGGCTGCGCTCAAA"
 ```
 
 ###### Solution
@@ -495,7 +524,17 @@ poly_a_pos[,sequence := str_dup("A", (end-start) + 1)]
   <summary>Show</summary>
 
 ```python
+import re
+import pandas as pd
 
+runs = []
+for m in re.finditer(r"A{3,}", dnaSeq):
+    start = m.start() + 1   # 1-based
+    end = m.end()           # end is already 1-based if we treat end as inclusive
+    runs.append((start, end, m.group()))
+
+df = pd.DataFrame(runs, columns=["start", "end", "sequence"])
+print(df)
 ```
 </details>
 
@@ -554,7 +593,8 @@ windowedGC[!is.na(windowedGC)]
 ###### Input
 
 ```python
-
+# setup
+dnaSeq = "ACTTTCTTATGTTTAGTTTCAATATTGTTTTCTTTTCTCTGGCT"
 ```
 
 ###### Solution
@@ -563,7 +603,18 @@ windowedGC[!is.na(windowedGC)]
   <summary>Show</summary>
 
 ```python
+import pandas as pd
 
+gc01 = [1 if b in ("G", "C") else 0 for b in dnaSeq]
+
+window = 10
+s = pd.Series(gc01)
+
+# rolling defaults to right-aligned; require full window like your NA filtering
+gc_pct = (s.rolling(window=window).mean() * 100).dropna()
+
+# print as ints if you want to match your output style closely
+print(gc_pct.astype(int).tolist())
 ```
 </details>
 
@@ -627,7 +678,9 @@ sum(dnaSeq_DT$badAlign)
 ###### Input
 
 ```python
-
+# setup
+strand_1 = "ATGCCGTCA"
+strand_2 = "ACACTGCAT"
 ```
 
 ###### Solution
@@ -636,7 +689,13 @@ sum(dnaSeq_DT$badAlign)
   <summary>Show</summary>
 
 ```python
+comp = {"A": "T", "T": "A", "C": "G", "G": "C"}
 
+s1 = strand_1.upper()
+s2 = strand_2.upper()[::-1]  # reverse to align antiparallel
+
+mismatches = sum(1 for a, b in zip(s1, s2) if comp.get(a) != b)
+print(mismatches)
 ```
 </details>
 
@@ -684,7 +743,8 @@ str_locate(dnaSeq, tataBox)
 ###### Input
 
 ```python
-
+dnaSeq = "CGCTATAAAAGGGC"
+tataBox = "TATAAAAG"
 ```
 
 ###### Solution
@@ -693,7 +753,19 @@ str_locate(dnaSeq, tataBox)
   <summary>Show</summary>
 
 ```python
+import re
+import pandas as pd
 
+m = re.search(re.escape(tataBox), dnaSeq)
+
+if not m:
+    df = pd.DataFrame(columns=["start", "end"])
+else:
+    start = m.start() + 1
+    end = m.end()          # inclusive end in 1-based terms
+    df = pd.DataFrame([(start, end)], columns=["start", "end"])
+
+print(df)
 ```
 </details>
 
