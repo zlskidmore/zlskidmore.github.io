@@ -14,7 +14,7 @@ Each challenge is intentionally small: just enough to keep your skills sharp wit
 
 For every prompt, I'll provide clearly defined input and a target output. Sometimes you may read data from a file; other times you’ll generate it on the fly. Either way, the idea is the same: run the setup code, then try to reproduce the expected result.
 
-Solutions in both R and Python follow each challenge. They’re not the only way to solve the problem, just clean, reproducible examples to compare your own work against. They are in fact the solutions I came up with on the fly, so you might notice a bias twoards using data.table in R for example :)
+Solutions in both R and Python follow each challenge. They’re not the only way to solve the problem, just clean, reproducible examples to compare your own work against. They are in fact the solutions I came up with on the fly, so you might notice a bias in libraries, using data.table in R for example :)
 
 Have Fun!
 
@@ -401,6 +401,68 @@ dna_Seq_codons_DT[,StopCodon := grepl("^(TAA|TAG|TGA)$", codon)]
 # subset to pull up until the first stop encounter, then format back to a vector
 dna_Seq_codons_DT <- dna_Seq_codons_DT[1:min(which(dna_Seq_codons_DT$StopCodon == TRUE))]
 dna_Seq_codons_DT$codon
+```
+</details>
+
+<br>
+
+#### Python
+
+###### Input
+
+```python
+
+```
+
+###### Solution
+
+<details markdown="1">
+  <summary>Show</summary>
+
+```python
+
+```
+</details>
+
+<hr>
+
+### Challenge 7
+
+Given a DNA sequence (5′→3′), find the lengths and 1-based start/end positions of all poly-A runs where there are ≥3 consecutive A’s. Runs are maximal (i.e., extend as far as possible). Ignore lowercase vs uppercase.
+
+###### Output
+
+```R
+   start   end    sequence
+   <int> <int>      <char>
+1:    19    24      AAAAAA
+2:    30    40 AAAAAAAAAAA
+3:    52    54         AAA
+```
+
+#### R
+
+###### Input
+
+```R
+# setup
+dnaSeq <- "TCGTGCCTGACGCAATGCAAAAAAGTCGCAAAAAAAAAAATGGCTGCGCTCAAA"
+```
+###### Solution
+
+<details markdown="1">
+  <summary>Show</summary>
+
+```R
+# load lib
+library(stringr)
+library(data.table)
+
+# find positions of all poly-a runs, 3 or more A's in a row
+poly_a_pos <- as.data.table(str_locate_all(dnaSeq, "A{3,}"))
+
+# with positions extracted we can just build the sequence back
+poly_a_pos[,sequence := str_dup("A", (end-start) + 1)]
 ```
 </details>
 
