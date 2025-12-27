@@ -396,7 +396,7 @@ dna_Seq_codons <- str_sub(dnaSeq_orf, start=start, end=stop)
 
 # annotate stop codons
 dna_Seq_codons_DT <- data.table(codon=dna_Seq_codons)
-dna_Seq_codons_DT[,StopCodon := grepl("TAA|TAG|TGA", dna_Seq_codons)]
+dna_Seq_codons_DT[,StopCodon := grepl("^(TAA|TAG|TGA)$", codon)]
 
 # subset to pull up until the first stop encounter, then format back to a vector
 dna_Seq_codons_DT <- dna_Seq_codons_DT[1:min(which(dna_Seq_codons_DT$StopCodon == TRUE))]
@@ -427,11 +427,13 @@ dna_Seq_codons_DT$codon
 <hr>
 
 ### Challenge 8
-Compute GC content in 10bp sliding windows
+
+In this challenge we will examine the GC content of a string of DNA across a rolling window, given the DNA string below, compute the GC content for a 10bp sliding window. The window should be right aligned so the first complete window to calculate on would be "ACTTTCTTAT" then "CTTTCTTATG" etc.
 
 ###### Output
 
 ```R
+20 30 20 20 20 20 20 20 20 20 30 20 20 20 20 20 10 20 20 20 10 10 20 20 20 20 20 20 20 30 30 40 40 50 50
 ```
 
 #### R
@@ -439,6 +441,8 @@ Compute GC content in 10bp sliding windows
 ###### Input
 
 ```R
+# setup
+dnaSeq <- "ACTTTCTTATGTTTAGTTTCAATATTGTTTTCTTTTCTCTGGCT"
 ```
 ###### Solution
 
@@ -446,6 +450,23 @@ Compute GC content in 10bp sliding windows
   <summary>Show</summary>
 
 ```R
+# lib
+library(data.table)
+
+# plan is to use DT frollapply for a rolling window, we need an integer vector for that, so
+# we will re-encode the data, G and C == 1 and A and T == 0
+dnaSeq_vec <- unlist(strsplit(dnaSeq, ""))
+dnaSeq_vec <- ifelse(grepl("G|C", dnaSeq_vec), 1, 0)
+
+# create a function for GC content calculation as a percentage
+a <- function(x) {
+  gc_content <- sum(x)/length(x) * 100
+  return(gc_content)
+}
+
+# apply over a 10 bp window, right align the window is the default
+windowedGC <- frollapply(dnaSeq_vec, 10, a)
+windowedGC[!is.na(windowedGC)]
 ```
 </details>
 
