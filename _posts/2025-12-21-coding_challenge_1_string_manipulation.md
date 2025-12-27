@@ -493,11 +493,23 @@ windowedGC[!is.na(windowedGC)]
 <hr>
 
 ### Challenge 9
-count base mismatches between forward and reverse dna strands of the same molecule
+
+Commonly, base mismatches occur in bioinformatics data. These may represent true variants or technical artifacts. Below are two DNA strings, each written 5′→3′. To compare them, reverse one strand to align it antiparallel to the other, then compare bases using standard complement rules and count the number of mismatches.
+For example:
+
+5'-ATGCC-3'
+3'-TACGT-5'
+
+Contains one artifact at the very end on the right side, either the C or T is wrong.
+
+Remember:
+G matches C
+A matches T
 
 ###### Output
 
 ```R
+3
 ```
 
 #### R
@@ -505,6 +517,8 @@ count base mismatches between forward and reverse dna strands of the same molecu
 ###### Input
 
 ```R
+strand_1 <- "ATGCCGTCA"
+strand_2 <- "ACACTGCAT"
 ```
 ###### Solution
 
@@ -512,6 +526,21 @@ count base mismatches between forward and reverse dna strands of the same molecu
   <summary>Show</summary>
 
 ```R
+# lib
+library(data.table)
+
+# make a DT to hold the forward and reverse DNA strands
+dnaSeq_DT <- data.table(forward = unlist(strsplit(strand_1, "")),
+                        reverse = rev(unlist(strsplit(strand_2, ""))))
+
+# examine each outcome and annotate if it's a bad alignment
+dnaSeq_DT[forward == 'A', badAlign := ifelse(reverse != "T", 1, 0)]
+dnaSeq_DT[forward == 'T', badAlign := ifelse(reverse != "A", 1, 0)]
+dnaSeq_DT[forward == 'C', badAlign := ifelse(reverse != "G", 1, 0)]
+dnaSeq_DT[forward == 'G', badAlign := ifelse(reverse != "C", 1, 0)]
+
+# count the number of bad alignments
+sum(dnaSeq_DT$badAlign)
 ```
 </details>
 
@@ -538,11 +567,14 @@ count base mismatches between forward and reverse dna strands of the same molecu
 <hr>
 
 ### Challenge 10
-Find the motif
+
+Often in biology we are interested in motif's, below I supply a DNA sequence, find the 1-base start and stop position of the TATA box for the sequence in the setup
 
 ###### Output
 
 ```R
+     start end
+[1,]     4  11
 ```
 
 #### R
@@ -550,6 +582,8 @@ Find the motif
 ###### Input
 
 ```R
+dnaSeq <- "CGCTATAAAAGGGC"
+tataBox <- "TATAAAAG"
 ```
 ###### Solution
 
@@ -557,6 +591,11 @@ Find the motif
   <summary>Show</summary>
 
 ```R
+# lib
+library(stringr)
+
+# locate the pattern
+str_locate(dnaSeq, tataBox)
 ```
 </details>
 
