@@ -25,6 +25,24 @@
 }
 
 /* ---------------------------------------
+  Headshot
+---------------------------------------- */
+.sidebar-headshot {
+  display: block;
+  margin: 0 auto 1rem auto; // centers horizontally
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .sidebar-headshot {
+    width: 96px;
+    height: 96px;
+  }
+}
+
+/* ---------------------------------------
    Navigation Links
 ---------------------------------------- */
 

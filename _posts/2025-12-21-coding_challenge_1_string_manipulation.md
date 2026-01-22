@@ -166,7 +166,7 @@ print(rev_comp)
 
 ### Challenge 3 - Calculate GC Content
 
-The relative abundance of G and C bases can have a real biological influence due to 3 strong hydrogen bond, this makes high GC rich regions more stable.
+The relative abundance of G and C bases can have a real biological influence due to the three hydrogen bonds in GC base pairs, making GC-rich regions more thermodynamically stable.
 
 Given a DNA string, calculate the GC content as a percentage of the total sequence length.
 

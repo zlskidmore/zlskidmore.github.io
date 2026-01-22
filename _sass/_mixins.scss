@@ -217,6 +217,22 @@
     border: 2px solid $antique-bronze; // Or use hex if you prefer
     box-shadow: 0 0 12px $antique-bronze; // Or hardcoded rgba
   }
+  
+  .btn-theme {
+    .btn {
+      background-color: $charcoal-matte;
+      color: $antique-bronze;
+      border: $Gunmetal_Black;
+
+      &:hover,
+      &:focus {
+        background-color: $Smoked_Pewter;
+        color: $Aged_Brass;
+        border-color: $Dark_Copper;
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 // ---------------------------------------------
@@ -441,5 +457,21 @@
   border: 2px solid $obsidian-violet; // Or use hex if you prefer
   box-shadow: 0 0 12px $obsidian-violet; // Or hardcoded rgba
   }
+  
+  .btn-theme {
+  .btn {
+    background-color: $Cream_Linen;
+    color: $antique-bronze;
+    border: 1px solid $Gunmetal_Black;
+
+    &:hover,
+    &:focus {
+      background-color: $Smoked_Pewter;
+      color: $Aged_Brass;
+      border-color: $Gunmetal_Black;
+      text-decoration: none;
+    }
+  }
+}
 }
 

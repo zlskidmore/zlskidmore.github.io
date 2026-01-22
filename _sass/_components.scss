@@ -180,3 +180,33 @@
   }
 }
 
+.resume-grid {
+  display: flex;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.resume-wrap {
+  flex: 1 1 0;
+  min-width: 0; // CRITICAL for PDF embeds inside flex
+}
+
+.resume-actions {
+  margin-bottom: 0.75rem;
+}
+
+.resume-pdf {
+  width: 100%;
+  height: calc(100vh - 220px);
+  border: none;
+}
+
+@media (max-width: 900px) {
+  .resume-grid {
+    flex-direction: column;
+  }
+
+  .resume-pdf {
+    height: calc(100vh - 260px);
+  }
+}
