@@ -34,6 +34,7 @@ Google Scholar <i class="fa-solid fa-file-lines"></i>
 
 <div class="container my-5">
   <div class="accordion" id="pubAccordion">
+    {% include accordion_pub_year.html year="2026" papers=site.data.publications.y2026 %}
     {% include accordion_pub_year.html year="2025" papers=site.data.publications.y2025 %}
     {% include accordion_pub_year.html year="2024" papers=site.data.publications.y2024 %}
     {% include accordion_pub_year.html year="2023" papers=site.data.publications.y2023 %}
